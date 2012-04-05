@@ -1,0 +1,92 @@
+
+/* -------------------------------------------------- 
+   Specific styles for About Us page 
+   -------------------------------------------------- */
+
+h1 {
+	margin-bottom: 30px;
+}
+
+h2 {
+	font-size: 20px;
+	font-size: 2.0rem;
+}
+
+h3 {
+	font-family: Candara, sans-serif;
+	font-size: 20px;
+	font-size: 2.0rem;	
+}
+
+
+.top-section .button {
+	float: right;
+	margin-right:20px;
+	font-size:14px;
+	font-size:1.4rem;
+	width:150px;
+}
+
+/* remove the float for the CTA button on mobile screens */
+@media only screen and (max-width: 767px) {	
+	 .top-section .button {float: none;}
+}
+
+
+/* -------------------------------------------------- 
+   The Team / Board / Advisors Section 
+   -------------------------------------------------- */
+
+.people-section {
+	margin-top:30px;
+}
+
+/* Style the tabs */
+
+dl.tabs {
+	margin-bottom: 1px;
+	border: none;
+}
+
+dl.tabs dd {
+	width: 202px;
+	height: 29px;
+	border: none;
+	border-bottom: 1px solid #e1e1e1;
+}
+
+
+/* Make tabs fluid on mobile screens */
+@media only screen and (max-width: 767px) {	
+	dl.tabs dd { width: auto; height: auto;}
+}
+
+
+/* Inactive tabs */
+dl.tabs dd a {
+	background: url("/img/tab-inactive.png") top left;
+	border: none;
+	color: #e28324;
+
+}
+
+/* Active tabs */
+dl.tabs dd a.active {
+	background: url("/img/tab-active.png") top left;
+	border: none;
+	color: white;
+}
+
+/* Tab content boxes */
+
+.tabs-content .container
+{
+	background: #f0f0f1;
+	padding: 30px 15px 30px 15px;
+}
+
+
+
+
+
+

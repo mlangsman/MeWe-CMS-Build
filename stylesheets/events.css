@@ -1,0 +1,227 @@
+
+/* -------------------------------------------------- 
+   Specific styles for Events page 
+   -------------------------------------------------- */
+
+.cta .button {
+	float:right;
+	width:60%;
+}
+
+@media only screen and (max-width: 767px) {	
+	.cta .button { 	
+			float:none;  
+			margin:auto;
+			margin-top: 30px;
+			width:100px;
+			}
+}
+
+.cta {
+	font: 18px, Arial, sans-serif;
+	font-size: 1.8rem;
+	font-weight: bold;
+	margin-bottom: 30px;
+	color:black;
+}
+
+
+
+/* -------------------------------------------------- 
+   Styles for the Next Event box
+   -------------------------------------------------- */
+
+.next-event {
+	padding:0 0 30px 0;
+	border: 1px solid white;
+	margin-bottom:30px;
+}
+
+.next-event .container
+{
+	padding-top:80px;
+}
+
+.next-event h2 {
+	background: url("/img/large-white-texture.png");
+	font: 18px, Arial, Sans-Serif;
+	font-size: 1.8rem;
+	font-weight: bold;
+	color: #898989;
+	padding: 10px;
+	display: inline;
+	margin: 0;
+	float: right;
+	border-left: 1px solid white;
+	border-right: 1px solid #aaaaaa;
+	border-bottom: 1px solid #aaaaaa;
+	
+	/* Shaodw */
+	moz-box-shadow: 1px 2px 1px 1px rgba(0,0,0,0.1);
+	-webkit-box-shadow: 1px 2px 1px 1px rgba(0,0,0,0.1);
+	box-shadow: -1px 1px 1px 0px rgba(0,0,0,0.1);
+	
+}
+
+.next-event h3 {
+	margin: 20px 0 20px 0;
+	color: #e28324;
+	font: 18px Arial, Sans-Serif;
+	font-size: 1.8rem;
+	font-weight: bold;
+}
+
+.next-event img {
+	border: solid 1px black;
+}
+
+.next-event p.time {
+	font: 16px Arial, Sans-Serif;
+	font-size: 1.6rem;
+	color: black;
+	margin: 20px 0 20px 0;
+}
+
+.next-event p.event-description {
+	color: black;
+	margin-bottom: 20px;
+}
+
+.next-event .date {
+	border:solid 1px #969696;
+	float:left;
+	padding:0;
+	height:68px;
+	width:128px;
+}
+
+.next-event .date .month
+{
+	padding: 10px;
+	position:absolute;
+	background: url("/img/orange-texture-38x72.png");
+	color: white;
+	font: 24px, Arial, Sans-Serif;
+	font-size: 2.4rem;
+	font-weight: bold;
+	margin:0;
+	height:18px;
+	width:48px;
+	display:block;
+	
+	/* Rotate text to display vertically */
+	-moz-transform: rotate(-90deg);
+	-moz-transform-origin: 34px 34px;
+	-webkit-transform: rotate(-90deg); 
+	-webkit-transform-origin: 34px 34px;
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+}
+
+.next-event .date .day
+{
+	width:90px;
+	height:68px;
+	float:right;
+	background: url("/img/large-white-texture.png");
+	text-align: center;
+	padding:0;
+	font: 60px Arial, Sans-Serif;
+	font-size:6rem;
+	font-weight: bold;
+	color : black;
+
+	
+}
+
+
+/* -------------------------------------------------- 
+   Styles for the Past Events section
+   -------------------------------------------------- */
+
+
+.past-events .date-box {
+	float: left;
+	margin-right: 30px;
+}
+
+
+.past-events li.event-summary
+{
+	margin: 30px 0 0 0;
+	background: url("/img/arrow-closed.png") top right no-repeat;
+	padding-bottom: 20px;
+	padding-right:100px;
+	border-bottom: 1px solid #d2d2d3;
+	
+}
+
+.past-events li.event-summary h3 {
+	font-size:18px;
+	font-size:1.8rem;
+	font-weight:bold;
+	
+}
+
+
+/* -------------------------------------------------- 
+   Styles for the Past events Accordion
+   -------------------------------------------------- */
+
+.open {
+	border:none !important;
+	background: url("/img/arrow-open2.png") top right no-repeat !important;
+}
+
+
+/* -------------------------------------------------- 
+   Styles for the content for each past event
+   -------------------------------------------------- */
+
+.past-events .event-content {
+	padding:30px 30px 10px 30px;
+}
+
+.past-events .event-content .gallery {
+	margin-bottom:2px;
+}
+
+.past-events .gallery li {
+	margin-bottom:0px;
+}
+
+
+.past-events .event-content h4 {
+	margin: 10px 0 10px 0;
+	font: 16px Candara, sans-serif;
+	font-size: 1.6rem;
+	font-weight: bold;
+}
+
+
+/* -------------------------------------------------- 
+   Future Events section
+   -------------------------------------------------- */
+
+.future-event h3 {
+	font-size: 16px;
+	font-size: 1.6rem;
+	margin-bottom:0;
+}
+
+.future-event p.date {
+	margin-bottom: 10px;
+}
+
+.future-event {
+	border-bottom: solid 1px #d2d2d3;
+	margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+

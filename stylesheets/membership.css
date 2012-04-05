@@ -1,0 +1,232 @@
+
+/* -------------------------------------------------- 
+   Specific styles for Membership page 
+   -------------------------------------------------- */
+
+h1 {
+	text-align: center;
+	letter-spacing:-1px;
+}
+
+@media only screen and (max-width: 767px) {	
+	h1 {font-size: 26px; font-size: 2.6rem;}
+}
+
+
+.services {
+	margin-top:10px;
+}
+
+/* Custom grid columns for the three membership tiers */
+
+.third.columns {
+	margin-left:1.2%;
+	width: 32.5%;
+	margin-bottom:20px;
+}
+
+
+.third.columns:first-child { margin-left: 0; }
+.third.columns:last-child { margin-left: 0.8%; }
+
+
+
+/* -------------------------------------------------- 
+   Styles for the special offer banner
+   -------------------------------------------------- */
+
+.banner {
+	text-align: center;
+	border:none black 1px;
+	background: url("/img/large-white-texture.png") top left no-repeat;
+	max-height:80px;
+	margin-bottom:20px;
+	padding:0;
+}
+
+.banner h2
+{
+	line-height:2.6em;
+	color: black;
+}
+
+/* Reduce font size as browser shrinks on banner */
+
+@media only screen and (max-width: 850px) {	
+	.banner h2 {font-size: 1.8rem;}
+}
+
+@media only screen and (max-width: 767px) {	
+	.banner h2 {font-size: 1.4rem;}
+}
+
+/* -------------------------------------------------- 
+   Styles for the memership tiers
+   -------------------------------------------------- */
+
+.service h2 {
+	padding:0;
+	background: url('/img/black_texture_background.png') top left repeat; 
+	box-shadow: 0 1px 4px 1px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.2);
+	-moz-box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+	text-align: center;
+	font: candara, arial, sans-serif 24px;
+	font-size:2.4rem;
+	height:auto;
+
+}
+
+.membership-tiers {
+	margin-bottom:30px;
+}
+
+.membership-tiers .service {
+		min-height: 600px;
+		position: relative;
+}
+
+/* Resize the membership tier columns when the browser is shrunk */
+
+@media only screen and (max-width: 950px) {	
+	.membership-tiers .service {min-height: 600px;}
+}
+
+@media only screen and (max-width: 767px) {	
+	.membership-tiers .service {min-height: 560px;}
+}
+
+/* Positoin the button at the bottom of the container and centered */
+.membership-tiers .service .button {
+	position: absolute;
+	bottom:0px;
+	left:50%;
+	margin-left:-36.5%;
+}
+
+.bubble {
+	background: #e99d51;
+	text-align: center;
+	color: white;
+	padding: 10px 0 5px 0;
+	margin:0 0 4px 0;
+	border: 1px lightgray solid;
+}
+
+/* Create darker shade for the first bubble */
+.bubble:first-of-type {
+	background: #e28324;	
+}
+
+
+/* Main membership tier price */
+.bubble .price {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:30px;
+	font-size:3.0rem;
+	font-weight: bold;	
+}
+
+
+/* smaller text for the contract length */
+.bubble .payment-period {
+	font-size:24px;
+	font-size:2.4rem;
+	font-style: bold;
+	line-height:4.0rem;
+	font-weight: bold;
+}
+
+/* Sub offer */
+.bubble .contract-length {
+	font-size:16px;
+	font-size:1.6rem;
+	font-weight: bold;
+}
+
+.bubble.feature {
+	/* background: #f9e6d3;*/
+	background: #e9c7a5;
+	padding: 15px;
+}
+
+.bubble.feature, .bubble.differentiator {
+	color:black;
+	font-size:14px;
+	font-size:1.4rem;
+}
+
+.bubble.differentiator {
+	padding:15px;
+	font-weight:bold;
+}
+
+/* -------------------------------------------------- 
+   FAQ section
+   -------------------------------------------------- */
+
+.faq-section {
+	margin-bottom:30px;
+}
+
+.faq-section h2 {
+	font-size:20px;
+	font-size: 2.0rem;
+}
+
+.question-and-answer {
+	margin-top:20px;
+}
+
+.question, .answer {
+	border:none;
+	margin: 0 0 7px 0;
+	padding:0;
+
+}
+
+.question:before, .answer:before {
+	font-size: 14px;
+	font-size: 1.4rem;
+	font-weight: bold;
+	margin-right: 15px;
+}
+
+.question:before {
+	content:"Q";
+	color: #959595;
+
+}
+
+.answer:before {
+	content:"A";
+	color: #e28324;
+}
+
+.answer {
+	background: #f0f0f1;
+}
+
+/* -------------------------------------------------- 
+   Top-ups section
+   -------------------------------------------------- */
+
+.top-ups {
+	text-align: center;
+}
+
+
+.top-ups h2 {
+	font: candara, arial, sans-serif 20px;
+	font-size:2.0rem;
+
+}
+
+.top-ups h3 {
+	font: Arial 14px bold;
+	font-size:1.4rem;
+	color: #e28324;
+}
+	
+
+
