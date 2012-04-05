@@ -70,7 +70,8 @@
 						<div class="seven columns">
 						
 							<h2>Latest news</h2>
-
+								
+								{exp:channel:entries channel="news" limit="1"}
 								<div class="row">
 									<div class="three columns">
 									
@@ -81,16 +82,22 @@
 									</div> <!-- .six columns -->
 
 									<div class="nine columns">
+										
 										<div class="news-article">
 											<header>
-												<h3 class="news-heading">Headline</h3>
-												<p><span class="date">19th February 2027</span> by Kevin <span class="comments">3 comments</span></p>
+												<h3 class="news-heading"><a href="{title_permalink='news/view'}">{title}</a></h3>
+												<p><span class="date">{entry_date format='%j %F %Y'}</span> by {author} <span class="comments">3 comments</span></p>
 											</header>	
-											<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat... </p>
+											<p class="excerpt">{news_excerpt}</p>
+											
+											
 										</div> <!-- .news-article -->
+									
+										
 									</div>
 								
 								</div> <!-- .row -->
+								{/exp:channel:entries}
 					
 
 
