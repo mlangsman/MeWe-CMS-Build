@@ -62,7 +62,7 @@
 		<div id="top-background">
 			<div id="background">
 				<div id="header">
-				
+
 					<div class="row" id="branding">
 							<div class="twelve columns">
 									<img src="/img/Logo.png" alt="Mewe Logo" />
@@ -77,13 +77,13 @@
 					<div class="row" id="masthead" >
 						<div class="twelve columns" >
 								<ul class="nav-bar hide-on-phones" id="primary-nav">
-									<li><a href="/" class="main"><span>Home</span></a></li>
-									<li class="selected"> <a href="about" class="main">About</a></li>
-									<li> <a href="/incubator" class="main">Incubator</a></li>
-									<li> <a href="/workspace" class="main">Workspace</a></li>
-									<li> <a href="/events" class="main">Events</a></li>
-									<li> <a href="/membership" class="main">Membership</a></li>
-									<li> <a href="/news" class="main">News</a></li>
+									<li {if segment_1 == ''}class="selected"{if:else}class="main"{/if}><a href="/" class="main"><span>Home</span></a></li>
+									<li {if segment_1 == 'about'}class="selected"{if:else}class="main"{/if}> <a href="about" class="main">About</a></li>
+									<li {if segment_1 == 'incubator'}class="selected"{if:else}class="main"{/if}> <a href="/incubator" class="main">Incubator</a></li>
+									<li {if segment_1 == 'workspace'}class="selected"{if:else}class="main"{/if}> <a href="/workspace" class="main">Workspace</a></li>
+									<li {if segment_1 == 'events'}class="selected"{if:else}class="main"{/if}>  <a href="/events" class="main">Events</a></li>
+									<li {if segment_1 == 'membership'}class="selected"{if:else}class="main"{/if}> <a href="/membership" class="main">Membership</a></li>
+									<li {if segment_1 == 'news'}class="selected"{if:else}class="main"{/if}> <a href="/news" class="main">News</a></li>
 									<li class="hub has-flyout">
 										<a href="#" class="main">Hub</a>
 										<div class="flyout" style="display: none;">
