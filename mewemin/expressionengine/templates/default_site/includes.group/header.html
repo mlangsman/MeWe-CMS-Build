@@ -69,8 +69,15 @@
 							</div>
 							
 							<ul class="secondary-nav hide-on-phones shadow">
-								<li><a href="#">Login</a></li>
-								<li><a href="sign-up.html" class="alternate">Join Up</a></li>
+								{if logged_out}
+									<li><a href="{path='member/login'}">Login</a></li>
+									<li><a href="sign-up.html" class="alternate">Join Up</a></li>
+								{/if}
+								{if logged_in}
+									<li><a href="{path='logout'}">Logout</a></li>
+								{/if}
+								
+								
 							</ul>
 					</div>
 
@@ -84,16 +91,18 @@
 									<li {if segment_1 == 'events'}class="selected"{if:else}class="main"{/if}>  <a href="/events" class="main">Events</a></li>
 									<li {if segment_1 == 'membership'}class="selected"{if:else}class="main"{/if}> <a href="/membership" class="main">Membership</a></li>
 									<li {if segment_1 == 'news'}class="selected"{if:else}class="main"{/if}> <a href="/news" class="main">News</a></li>
+								{if logged_in}
 									<li class="hub has-flyout">
 										<a href="#" class="main">Hub</a>
 										<div class="flyout" style="display: none;">
 											<ul>
-												<li><a href="profile.html" class="main">Profile</a></li>
-												<li><a href="community.html" class="main">Community</a></li>
+												<li><a href="{path='member/profile'}" class="main">Profile</a></li>
+												<li><a href="{path='member/memberlist'}" class="main">Community</a></li>
 												<li><a href="#" class="main">Resources</a></li>
 											</ul>
 										</div>
 									</li>
+								{/if}
 								</ul>
 						</div>
 					</div>
