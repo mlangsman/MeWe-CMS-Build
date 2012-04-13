@@ -26,96 +26,31 @@
 						<div class="past-events">
 							<h2 class="black-header-bar">Past Events</h2>
 							<ul>
-								<li class="event-summary accordionButton">
+								{exp:channel:entries channel="past_events" orderby="past_event_date"}
+								
+									<li class="event-summary accordionButton">
 									<div class="date-box">
-										<p class="month">MAR</p>
-										<p class="day">25</p>
+										<p class="month">{past_event_date format="%M"}</p>
+										<p class="day">{past_event_date format="%d"}</p>
 									</div> <!-- date-box -->
 							
-									<h3 class="event-title">MeWe Event Horizon</h3>
-									<p class="event-description">Exploring the infinite potential of exploitation in the work place.</p>
+									<h3 class="event-title">{title}</h3>
+									<p class="event-description">{past_event_description}</p>
 									<div class="clear"></div>
 								</li>
 
-								<li class="event-content inset accordionContent">
+									<li class="event-content inset accordionContent">
 									<div class="row">
 										<div class="seven columns">
 											
 											<ul class="block-grid eight-up gallery">
+											
+											{past_event_photo_gallery}
 												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
+													<a href="{image}">{exp:ed_imageresizer image="{image}" forceWidth="yes" forceHeight="yes" maxWidth="200" maxHeight="200" cropratio="100:100" alt="pap"}</a>
 												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
+											{/past_event_photo_gallery}
+											
 											</ul>									
 										
 										</div><!-- columns -->
@@ -136,116 +71,8 @@
 								
 								</li>
 
-								<li class="event-summary accordionButton">
-									<div class="date-box">
-										<p class="month">MAR</p>
-										<p class="day">25</p>
-									</div> <!-- date-box -->
-							
-									<h3 class="event-title">MeWe Event Horizon</h3>
-									<p class="event-description">Exploring the infinite potential of exploitation in the work place.</p>
-									<div class="clear"></div>
-								</li>
-
-								<li class="event-content inset accordionContent">
-									<div class="row">
-										<div class="seven columns">
-											
-											<ul class="block-grid eight-up gallery">
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/6"><img src="http://lorempixel.com/200/200/abstract/6" alt="" /></a>
-												</li>
-												<li>
-													<a href="http://lorempixel.com/200/200/abstract/8"><img src="http://lorempixel.com/200/200/abstract/9" alt="" /></a>
-												</li>
-											</ul>									
-										
-										</div><!-- columns -->
-									
-										<div class="five columns">
-											<div class="video">
-												<img src="http://placehold.it/220x123">
-											</div>
-										</div> <!-- columns -->
-									</div> <!-- row -->
-									
-									<div class="row">
-										<div class="twelve columns">
-												<h4>Review</h4>
-												<p>People had a great time at this event. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est/</p>
-										</div><!-- columns -->
-									</div> <!-- row -->
-								
-								</li>
-									
+								{/exp:channel:entries}
+	
 							</ul>
 								
 						</div><!-- past events -->	
