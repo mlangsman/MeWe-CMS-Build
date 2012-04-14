@@ -82,43 +82,36 @@
 					
 						<div class="four columns pull-eight">
 						
-						{if "{exp:eventbriteapi:isFutureEvent}" == "true"}	
-							<div class="next-event inset">
-								<div class="date">
-									<span class="month">{exp:eventbriteapi:nextEventMonth}</span>
-									<span class="day">{exp:eventbriteapi:nextEventDay}</span>
+							{exp:eventbriteapi:nextEvent}
+							<!--	{if "{isNextEvent}" == "true"} -->
+								<div class="next-event inset">
+									<div class="date">
+										<span class="month">{month}</span>
+										<span class="day">{day}</span>
+									</div>
+									<h2>Next Event</h2>
+									<div class="container">
+										<h3>{title}</h3>
+										<img src="http://lorempixel.com/230/100">
+										<p class="time">11am - 5pm</p>
+										<p class="event-description">{description}</p>
+										<a href="{url}" class="medium black button radius black-gradient"><span>Find out more</span></a>
+									</div>
 								</div>
-								<h2>Next Event</h2>
-								<div class="container">
-									<h3>{exp:eventbriteapi:nextEventTitle}</h3>
-									<img src="http://lorempixel.com/230/100">
-									<p class="time">11am - 5pm</p>
-									<p class="event-description">{exp:eventbriteapi:nextEventDescription}</p>
-									<a href="#" class="medium black button radius black-gradient"><span>Find out more</span></a>
-								</div>
-							</div>
-						{/if}
+							<!--	{/if} -->
+							{/exp:eventbriteapi:nextEvent}
+						
 							
 							<div class="future-events">
 								<h2 class="black-header-bar">Future events</h2>
 								<ul>
-									<li class="future-event container">
-										<h3>MeWe Future Event</h3>
-										<p class="date">6th May 2012</p>
-										<p>fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
-									</li> <!-- container -->
-						
-									<li class="future-event container">
-										<h3>MeWe Future Event</h3>
-										<p class="date">6th May 2012</p>
-										<p>fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
-									</li> <!-- container -->
-						
-									<li class="future-event container">
-										<h3>MeWe Future Event</h3>
-										<p class="date">6th May 2012</p>
-										<p>fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
-									</li> <!-- container -->
+									{exp:eventbriteapi:futureEvents}
+										<li class="future-event container">	
+											<h3>{title}</h3>
+											<p class="date">{date}</p>
+											<!-- <p>bumhole</p> -->
+										</li> <!-- container -->
+									{/exp:eventbriteapi:futureEvents}
 								</ul>
 						
 							</div> <!-- future-events -->

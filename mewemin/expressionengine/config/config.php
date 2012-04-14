@@ -14,7 +14,7 @@
 $config['app_version'] = '240';
 $config['install_lock'] = "";
 $config['license_number'] = "4284-2493-8372-1245";
-$config['debug'] = '1';
+$config['debug'] = "1";
 $config['cp_url'] = "http://mewe_cms.local/mewemin/index.php";
 $config['doc_url'] = "http://expressionengine.com/user_guide/";
 $config['is_system_on'] = "y";

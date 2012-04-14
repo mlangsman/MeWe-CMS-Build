@@ -527,6 +527,7 @@ h3.news-heading, h3.event-heading
 	font-size: 18px;
 	font-weight:bold;
 	margin:0;
+	text-transform:uppercase;
 	
 }
 
