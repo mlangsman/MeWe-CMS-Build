@@ -17,7 +17,7 @@
 					
 					<div class="row services membership-tiers">
 					
-					{exp:channel:entries channel="membership_tiers" limit="3" status="Tier 1|Tier 2|Tier 3"}
+					{exp:channel:entries channel="membership_tiers" limit="3" status="Tier 1"}
 							<div class="third columns">
 								<div class="service rounded shadow">
 										<h2>{membership_tier_name}</h2>
@@ -49,12 +49,91 @@
 											</div>
 										{/if}
 			
-										<a href="#" class="large button radius black-gradient"><span>Sign up today</span></a>
+										<a href="/sign-up" class="large button radius black-gradient"><span>Sign up today</span></a>
 										
 								</div> <!-- panel -->
 								
 							</div>
-					{/exp:channel:entries}				
+					{/exp:channel:entries}	
+					
+
+					{exp:channel:entries channel="membership_tiers" limit="3" status="Tier 2"}
+							<div class="third columns">
+								<div class="service rounded shadow">
+										<h2>{membership_tier_name}</h2>
+										<div class="bubble rounded">
+											<div>
+												<span class="contract-length">{membership_primary_description}</span><br />
+												<span class="price">{membership_primary_price}/</span><span class="payment-period">{membership_primary_period}</span></div>
+
+										</div>
+										<div class="bubble secondary-offer rounded ">
+											<div>
+												<span class="contract-length">{membership_secondary_description}</span><br />
+												<span class="price">{membership_secondary_price}/</span><span class="payment-period">{membership_secondary_period}</span></div>
+
+										</div>
+										<div class="bubble feature rounded">
+											{membership_feature_1}
+										</div>
+										<div class="bubble feature rounded">
+											{membership_feature_2}
+										</div>
+										<div class="bubble feature rounded">
+											{membership_feature_3}
+										</div>
+										
+										{if membership_differentiator != ""}
+											<div class="bubble differentiator rounded">
+												{membership_differentiator}
+											</div>
+										{/if}
+			
+										<a href="/sign-up" class="large button radius black-gradient"><span>Sign up today</span></a>
+										
+								</div> <!-- panel -->
+								
+							</div>
+					{/exp:channel:entries}
+			
+					{exp:channel:entries channel="membership_tiers" limit="3" status="Tier 3"}
+							<div class="third columns">
+								<div class="service rounded shadow">
+										<h2>{membership_tier_name}</h2>
+										<div class="bubble rounded">
+											<div>
+												<span class="contract-length">{membership_primary_description}</span><br />
+												<span class="price">{membership_primary_price}/</span><span class="payment-period">{membership_primary_period}</span></div>
+
+										</div>
+										<div class="bubble secondary-offer rounded ">
+											<div>
+												<span class="contract-length">{membership_secondary_description}</span><br />
+												<span class="price">{membership_secondary_price}/</span><span class="payment-period">{membership_secondary_period}</span></div>
+
+										</div>
+										<div class="bubble feature rounded">
+											{membership_feature_1}
+										</div>
+										<div class="bubble feature rounded">
+											{membership_feature_2}
+										</div>
+										<div class="bubble feature rounded">
+											{membership_feature_3}
+										</div>
+										
+										{if membership_differentiator != ""}
+											<div class="bubble differentiator rounded">
+												{membership_differentiator}
+											</div>
+										{/if}
+			
+										<a href="/sign-up" class="large button radius black-gradient"><span>Sign up today</span></a>
+										
+								</div> <!-- panel -->
+								
+							</div>
+					{/exp:channel:entries}
 				
 					</div><!-- #services-->
 					

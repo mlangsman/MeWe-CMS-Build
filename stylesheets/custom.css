@@ -42,6 +42,7 @@ p {
 		box-shadow: inset 1px 2px 1px 1px rgba(0,0,0,0.1);
 }
 
+
 /*	--------------------------------------------------
    	Reusable Components
 	-------------------------------------------------- */
@@ -470,6 +471,10 @@ p {
 	-webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.35);
 	-moz-box-shadow: 0 2px 5px rgba(0,0,0,0.45); */
 	margin-bottom: 20px;
+}
+
+#news-area img {
+	width:100%;
 }
 
 h3.news-heading, h3.event-heading

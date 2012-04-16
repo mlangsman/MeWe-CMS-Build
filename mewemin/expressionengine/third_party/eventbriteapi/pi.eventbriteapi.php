@@ -16,7 +16,7 @@ $plugin_info = array(
   'pi_author'       => 'Marc Langsman',
   'pi_author_url'   => 'http://example.com/',
   'pi_description'  => 'Returns event data from eventbrite',
-  'pi_usage'        => 'bah blah'
+  'pi_usage'        => ''
 );
 
 include "Eventbrite.php"; 
@@ -68,7 +68,7 @@ Class Eventbriteapi
 			
 			try {
 		        /* Run the eventbrite api query */
-				$this->events = $this->eb_client->user_list_events(array('event_statuses' => 'live,started', 'do_not_display' => 'venue,logo,style,organizer'));
+				$this->events = $this->eb_client->user_list_events(array('event_statuses' => 'live,started', 'do_not_display' => 'venue,organizer'));
 				
 				/* Store the results in a session variable */
 				$_SESSION['eventbrite_data'] = serialize($this->events);
@@ -98,7 +98,7 @@ Class Eventbriteapi
 	/*
 	*  Check to see if there are any events in the list retrieved from Eventbrite
 	*/
-	public function isFutureEvent()
+	public function isUpcomingEvent()
 	{
 		
 		$returnValue;
@@ -116,6 +116,9 @@ Class Eventbriteapi
 	}
 
 
+	/*
+	*	Test function - just outputs the events stored from the eventbrite query
+	*/
 	public function test()
 	{
 		if( isset($this->events->events) )
@@ -130,31 +133,44 @@ Class Eventbriteapi
 	*	If so return it's details to the expressionengine template tag. Otherwise return 
 	*	isNextEvent to false so we can check this in the template.
 	*/
-	public function nextEvent()
+	public function upcomingEvents()
 	{
 		$nextEventDetails = array();
 		
 		/* If there has been an event returned, extract the details to return to the EE tags */
-		if (isset($this->events->events[0]->event))
+		if (isset($this->events->events))
 		{
-			/* Get the first event in the list */
-			$nextEvent = $this->events->events[0]->event;
+			foreach( $this->events->events as $evnt )
+			{
+				/* Get the first event in the list */
+				$nextEvent = $evnt->event;
 			
-			/* Pull out and format the details */
-			$title = $nextEvent->title;
-			$url = $nextEvent->url;
-			$date = strtotime($nextEvent->start_date);
-			$day = date('d', $date );
-			$month = strtoupper(date('M', $date));
-			$description = substr(strip_tags($nextEvent->description),0,200)."...";
+				/* Pull out and format the details */
+				$title = $nextEvent->title;
+				
+				if (isset($nextEvent->logo)) 
+					$logoURL = $nextEvent->logo;
+				else $logoURL="";
+				
+				$url = $nextEvent->url;
+				$date = strtotime($nextEvent->start_date);
+				$day = date('d', $date );
+				$month = strtoupper(date('M', $date));
+				$niceDate = date('jS F Y',$date);
+				$description = substr(strip_tags($nextEvent->description),0,200)."...";
+				
 		
-			/* push all the event details onto a return array which we can use in the EE tags */
-			array_push($nextEventDetails, array(	'title' => $title,
-													'url' => $url,
-													'day' => $day,
-													'month' => $month,
-													'description' => $description, 
-													'isNextEvent' => 'true') );
+				/* push all the event details onto a return array which we can use in the EE tags */
+				array_push($nextEventDetails, array(	'title' => $title,
+														'url' => $url,
+														'day' => $day,
+														'month' => $month,
+														'date' => $niceDate,
+														'logoURL' => $logoURL,
+														'description' => $description 
+													)
+							);
+			}						
 		}
 		else
 		{
@@ -164,26 +180,6 @@ Class Eventbriteapi
 		
 	    return $this->EE->TMPL->parse_variables($this->EE->TMPL->tagdata, $nextEventDetails);
 	}
-
-	public function futureEvents()
-	{
-		$futureEvents = array();
-		
-		if (isset($this->events->events))
-		{
-			foreach( $this->events->events as $evnt )
-			{
-				$date = date('jS F Y',strtotime($evnt->event->start_date));
-				array_push($futureEvents, array('title'=> $evnt->event->title, 'date'=> $date));
-			}
-			
-			return $this->EE->TMPL->parse_variables($this->EE->TMPL->tagdata, $futureEvents);
-			
-		}
-		
-	    return;
-	}	
-	
 	
 	
 }

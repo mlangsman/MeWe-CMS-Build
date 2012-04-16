@@ -7,7 +7,7 @@
 						<div class="six columns push-six" id="straplineArea">
 								<div class="cta-container">
 									<h1>We provide access to the best <a>funding</a>, <a>mentoring</a> and <a>incubation</a> to propel your creative business.</h1>
-									<a class="huge button black radius black-gradient hide-on-phones" href="#"><span>Join today</span></a>
+									<a class="huge button black radius black-gradient hide-on-phones" href="/sign-up"><span>Join today</span></a>
 								</div>
 						</div> <!-- #straplineArea -->
 
@@ -24,43 +24,45 @@
 					</div> <!-- #topSection -->
 			
 					<div class="row services">
-				
+						{exp:channel:entries channel="home"}
+						
 							<div class="quarter columns">
 								<div class="service rounded">
 										<h2>Incubator</h2>
-									<img src="/img/workspace.jpg" alt="MeWe Incubator" />
-									<p>£1 million business incubator and venture fund</p>
-									<a href="#" class="medium black button radius black-gradient"><span>Fund your business</span></a>
+									<img src="{home_incubator_image}" alt="Incubator" />
+									<p>{home_incubator_copy}</p>
+									<a href="/incubator" class="medium black button radius black-gradient"><span>Fund your business</span></a>
 								</div> <!-- panel -->
 							</div>				
 				
 							<div class="quarter columns">				
 								<div class="service rounded">
 									<h2>Workspace</h2>
-									<img src="/img/workspace.jpg" alt="MeWe Incubator" />
-									<p>£1 million business incubator and venture fund</p>
-									<a href="#" class="medium black button radius black-gradient"><span>See the workspace</span></a>
+									<img src="{home_workspace_image}" alt="Workspace" />
+									<p>{home_workspace_copy}</p>
+									<a href="/workspace" class="medium black button radius black-gradient"><span>See the workspace</span></a>
 								</div> <!-- panel -->
 							</div>				
 					
 							<div class="quarter columns">					
 								<div class="service rounded">
 									<h2>Events</h2>
-									<img src="/img/events.jpg" alt="MeWe Incubator" />
-									<p>£1 million business incubator and venture fund</p>
-									<a href="#" class="medium black button radius black-gradient"><span>Come to an event</span></a>
+									<img src="{home_events_image}" alt="Events" />
+									<p>{home_events_copy}</p>
+									<a href="/events" class="medium black button radius black-gradient"><span>Come to an event</span></a>
 								</div> <!-- panel -->
 							</div>				
 					
 							<div class="quarter columns">				
 								<div class="service rounded">
-									<h2>Consulting</h2>
-									<img src="/img/consulting.jpg" alt="MeWe Incubator" />
-									<p>£1 million business incubator and venture fund</p>
-									<a href="#" class="medium black button radius black-gradient"><span>Find out more</span></a>
+									<h2>Membership</h2>
+									<img src="{home_membership_image}" alt="Membership" />
+									<p>{home_membership_copy}</p>
+									<a href="/membership" class="medium black button radius black-gradient"><span>Find out more</span></a>
 								</div> <!-- panel -->
 							</div>
-
+							
+						{/exp:channel:entries}
 
 					</div><!-- #services-->
 				
@@ -74,10 +76,16 @@
 								{exp:channel:entries channel="news" limit="1"}
 								<div class="row">
 									<div class="three columns">
-									
-										<div class="flex-video vimeo">
-											<iframe src="http://player.vimeo.com/video/30995060?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="128" height="80" frameborder="0"></iframe>
-										</div>
+										<a href="{title_permalink='news/view'}">
+											
+											{if news_video_url !=""}
+												{exp:antenna url='{news_video_url}' vimeo_portrait='false' vimeo_title='false'}
+														<img src="{video_thumbnail}" alt="{video_title}" />
+												{/exp:antenna}
+											{if:elseif news_image != ""}
+												<img src="{news_image}" alt="{title}" />
+											{/if}
+										</a>
 									
 									</div> <!-- .six columns -->
 
@@ -106,20 +114,24 @@
 						<div class="five columns">	
 							<h2>Upcoming events</h2>
 							<div class="row event">
+							{exp:eventbriteapi:upcomingEvents limit='1'}
+							
 								<div class="three columns">
-										<div class="date-box">
-											<p class="month">MAR</p>
-											<p class="day">25</p>
-										</div> <!-- date-box -->
+										<a href='{url}'>
+											<div class="date-box">
+												<p class="month">{month}</p>
+												<p class="day">{day}</p>
+											</div> <!-- date-box -->
+										</a>
 								</div>
 								<div class="nine columns">
 									<div class="event-details">
-										<h3 class="event-heading">Networking Event</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
+										<h3 class="event-heading"><a href='{url}'>{title}</a></h3>
+										<p>{description}</p>
 									</div> <!-- date- -->	
 								</div>
 							</div>
-		
+							{/exp:eventbriteapi:upcomingEvents}
 						</div> <!-- sidebar -->
 							
 			

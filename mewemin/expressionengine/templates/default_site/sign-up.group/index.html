@@ -1,0 +1,120 @@
+{embed="includes/header" page="{segment_1}"}
+			
+				<div class="container"> 
+				
+					<div class="row">
+						<div class="twelve columns">
+							<h1>Interested in joining up or finding out about special offers and upcoming events? Fill in your details and we’ll keep you in the loop.</h1>
+						</div>
+					</div> <!-- row -->
+					
+					<div class="row top-section">
+						
+						<div class="six columns">	
+						
+							{exp:freeform:form 
+								form:class="nice custom"
+								collection="Contact Form"
+								required="name|email"
+								return="/"
+								notify="marc@langsman.com"
+								template="default_template"
+								send_user_email="yes"
+								user_email_template="some_template"
+								}
+							
+								<div class="row">
+									<div class="six columns">	
+										<label for="first_name">Name</label>
+										<input id="first_name" name="first_name" class="input-text" type="text">
+									</div><!-- columns -->
+								
+									<div class="six columns">	
+										<label for="last_name">Surname</label>
+										<input id="last_name" name="last_name" class="input-text" type="text">
+									</div><!-- columns -->
+								</div><!-- row -->
+							
+								<div class="row">
+									<div class="twelve columns">
+											<label for="email">Email</label>
+											<input id="email" name="email" class="input-text" type="text">
+									</div>
+								</div>	
+													
+								<div class="row">
+									<div class="six columns">	
+										<label for="phone_number">Phone number</label>
+										<input id="phone_number" name="phone_number" class="input-text" type="text">
+									</div><!-- columns -->
+								
+									<div class="six columns">	
+										<label for="postcode">Postcode</label>
+										<input id="postcode" name="postcode" class="input-text" type="text">
+									</div><!-- columns -->
+								</div><!-- row -->		
+						
+								<div class="row">
+									<div class="twelve columns">
+									
+										<label for="creative_insutry">What creative industry are you in?</label>
+										<select style="display:none;" id="creative_insutry" name="creative_industry" class="expand">
+										  	<option>Design</option>
+										  	<option>New Media</option>
+											<option>Television</option>
+										  	<option>Writing</option>
+										</select>
+									
+										<label for="membership_type">What type of membership are you interested in?</label>
+										<select style="display:none;" id="membership_type" name="membership_type" class="expand">
+										  	<option>Hub</option>
+											<option>Club</option>
+										  	<option>Incubator</option>
+										  	<option>Not sure</option>
+										</select>
+									
+									</div>	<!-- columns -->
+								</div> <!-- row -->
+							
+								<div class="row submit-section">
+
+									<div class="six columns">	
+										<input type="submit" class="large black button radius black-gradient" name="submit" value="Submit" />
+										
+									</div><!-- columns -->
+								
+									<div class="six columns terms">
+								            <span id="checkbox"><input id="opt-in" checked="checked" type="checkbox" /></span>
+								            <span id="checkbox-label"><label for="opt-in">Uncheck this box if you don’t want to recieve news about special discounts, upcoming events and more. Don’t worry, we hate spam and we’ll never share your details with anyone else.</label></span>
+									</div><!-- columns -->
+
+								</div><!-- row -->
+							
+							
+							{/exp:freeform:form} <!-- form -->
+										
+						</div> <!-- columns -->
+				
+						
+						<div class="six columns hide-on-phones">
+							<div class="large-image">
+								<img src="/img/membership.png" class="frame" />
+							</div>
+						</div> <!-- columns -->
+								
+							
+	
+			
+					</div> <!-- .row -->
+					
+					
+					<div class="row">
+						<div class="twelve columns">
+						
+						</div> <!-- columns -->
+					</div> <!-- row -->
+					
+
+				</div> <!-- container -->
+
+{embed="includes/footer"}

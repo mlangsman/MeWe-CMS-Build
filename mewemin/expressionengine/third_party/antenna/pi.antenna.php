@@ -30,7 +30,7 @@ class Antenna
 	public $return_data = '';
 	public $cache_name = 'antenna_urls';
 	public $refresh_cache = 10080;			// in mintues (default is 1 week)
-	public $cache_expired = FALSE;
+	public $cache_expired = TRUE;
 
 	public function Antenna() 
 	{
@@ -61,6 +61,7 @@ class Antenna
 		$max_height = ($this->EE->TMPL->fetch_param('max_height')) ? "&maxheight=" . $this->EE->TMPL->fetch_param('max_height') : "";
 		$wmode = ($this->EE->TMPL->fetch_param('wmode')) ? $this->EE->TMPL->fetch_param('wmode') : "";
 		$wmode_param = ($this->EE->TMPL->fetch_param('wmode')) ? "&wmode=" . $this->EE->TMPL->fetch_param('wmode') : "";
+		
 
 		// Correct for a bug in YouTube response if only maxheight is set and the video is over 612px wide
 		if (empty($max_height)) $max_height = "&maxheight=" . $this->EE->TMPL->fetch_param('max_width');
@@ -72,6 +73,8 @@ class Antenna
 
 		// Some optional YouTube parameters
 		$youtube_rel = $this->EE->TMPL->fetch_param('youtube_rel', null);
+		
+		$controls = ($this->EE->TMPL->fetch_param('controls')) ? "&controls=" . $this->EE->TMPL->fetch_param('controls') : "";
 		
 		// Some optional Vimeo parameters
 		$vimeo_byline = ($this->EE->TMPL->fetch_param('vimeo_byline') == "false") ? "&byline=false" : "";
@@ -99,7 +102,7 @@ class Antenna
 		}
 
 
-		$url .= urlencode($video_url) . $max_width . $max_height . $wmode_param . $vimeo_byline . $vimeo_title . $vimeo_autoplay . $vimeo_portrait . $viddler_type . $viddler_ratio;
+		$url .= urlencode($video_url) . $max_width . $max_height . $wmode_param . $vimeo_byline . $vimeo_title . $vimeo_autoplay . $vimeo_portrait . $viddler_type . $viddler_ratio . $controls;
 		
 		// checking if url has been cached
 		$cached_url = $this->_check_cache($url);

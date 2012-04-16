@@ -1,0 +1,14 @@
+<div class="inset rounded sidebar">
+	<h2>Recent News</h2>
+	{exp:channel:entries channel="news" dynamic="no"}
+	
+		<div class="news-snippet">
+			<a href="{title_permalink='news/view'}">
+				<h3>{title}</h3>
+			</a>
+			<h4>{entry_date format='%j %F %Y'}</h4>
+		</div> <!-- .news-snippet -->
+	
+	{/exp:channel:entries}
+
+</div>

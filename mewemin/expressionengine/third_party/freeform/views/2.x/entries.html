@@ -1,0 +1,340 @@
+
+<script type="text/javascript">
+	
+	$(document).ready( function(){ 
+		$('.field_view_options').hide();
+		$('.toggle_minus').hide();
+
+		var checked_count = $('.field_view_options input:checked').length;
+
+		$('#field_view_options_toggle').click(function(){
+			$('.toggle_minus').toggle();
+			$('.toggle_plus').toggle();
+			$('.field_view_options').toggle('fast');
+			return false;
+		});
+
+		$('#field_view_toggle_empty').click(function(){
+			if( $('.field_empty:hidden').length > 0 )
+			{
+				$('.field_empty').each(function(){ 
+					$(this).parent('label').show('fast'); 
+				});
+			}
+			else
+			{
+				$('.field_empty').each(function(){ 
+					$(this).attr('checked',false); 
+					$(this).parent('label').hide('fast'); 
+				});				
+			}
+			return false;
+		});
+
+		$('.toggle_checked').click( function(){
+
+			if( $(this).attr('rel') == 'all' )
+			{
+				$('.field_view_options input[type=checkbox]').attr('checked',true);
+
+			}
+			else if( $(this).attr('rel') == 'none' )
+			{
+				$('.field_view_options input[type=checkbox]').attr('checked',false);
+				
+			}
+			else if( $(this).attr('rel') == 'empty' )
+			{
+				$('.field_view_options input[type=checkbox]').attr('checked',false);
+				$('.field_view_options input.field_empty[type=checkbox]').attr('checked',true);
+			}
+			else if( $(this).attr('rel') == 'filled' )
+			{
+				$('.field_view_options input[type=checkbox]').attr('checked',false);
+				$('.field_view_options input.field_filled[type=checkbox]').attr('checked',true);		
+			}
+			
+			return false;	
+		});
+	});	
+</script>
+<style type="text/css">
+	/*have to have this dummy to force items on the same line*/
+	#ss_plain, #ss_plain2, 
+	#ss_plain tr, #ss_plain2 tr,
+	#ss_plain td, #ss_plain2 td,
+	#ss_plain td:last-child, #ss_plain2 td:last-child {
+		background:transparent; 
+		padding:0px; 
+		border:none;
+		border-collapse:collapse;
+	}
+		
+	#mainContent .pageContents #ss_plain,
+	#mainContent .pageContents #ss_plain2 {
+		margin-bottom:0;
+	}
+
+	.freeform_filters label { margin-right : 10px;}
+	.field_view_options { margin-bottom : 10px; margin-top :10px;}
+	label.show_empty { display : block; }
+	.toggle_checkgroups { display: block; float : left:  both; } 
+
+	#field_view_options_toggle {  margin-right : 10px; }
+	
+	.toggle_checkgroups span.button a { background : #d0d9e1; -webkit-border-radius : 3px; -moz-border-radius : 3px; }
+	.toggle_checkgroups span.button a:hover { background : #e11842; text-decoration : none; }
+
+	.freeform_filters fieldset {
+		-webkit-border-radius : 	3px; 
+		-moz-border-radius : 		3px;
+		border-radius:				3px;
+	}
+
+	.sub_box {
+		background-color: 			#f4f6f6;
+		-webkit-border-radius: 		3px;
+		-moz-border-radius: 		3px;
+		border-radius: 				3px;
+		border: 					1px solid #d0d7df;
+		margin-bottom: 				10px;
+		padding: 					5px 10px;
+	}
+
+	.visible_field_checkbox {
+		display: inline-block;
+		width: 	 200px;
+	}
+
+		.visible_field_checkbox input[type="checkbox"] {
+			margin-right:5px;
+		}
+	
+</style>
+
+
+<form method="post" id="search" name="search" action="<?=$manage_form_url?>" class="freeform_filters">
+	<input type="hidden" name="XID" value="<?=$XID_SECURE_HASH?>" />
+	<fieldset style="margin-top:0;">
+		<select class="select" name="form_name">
+				<option value=""><?=$lang_filter_by_collection?></option>
+		<?php if ( ! empty($forms) ): ?>
+			<?php foreach($forms as $form):?>
+				<option value="<?php echo $form->form_name; ?>"<?php 
+					echo ( $form->form_name == $get_form_name ) ? ' selected="selected"': '';
+				?>><?php echo $form->form_name; ?></option>
+			<?php endforeach; ?>	
+		<?php endif; ?>	
+			</select>
+			&nbsp;
+			<select class="select" name="status">
+				<option value=""><?=$lang_filter_by_status?></option>
+				<option value="open"<?php 
+					echo ( $get_status == 'open' ) ? ' selected="selected"': '';
+				?>><?=$lang_open?></option>
+				<option value="closed"<?php 
+					echo ( $get_status == 'closed' ) ? ' selected="selected"': '';
+				?>><?=$lang_closed?></option>
+			</select>
+			&nbsp;
+
+			<button id="field_view_options_toggle">
+				<span class="toggle_plus">+</span>
+				<span class="toggle_minus">-</span>  
+				<?=$lang_field_display_options?>
+			</button>
+
+			<div class="field_view_options sub_box">
+				<h4 style="margin-bottom:10px;"><?=$lang_visible_fields?></h4>
+
+					<input type="hidden" name="show_empties" value="yes"/>
+
+					<div class="toggle_checkgroups">
+						<span class="button">
+							<a class="toggle_checked" rel="all" href="#"><?=$lang_all?></a> 
+						</span>
+						<span class="button">
+							<a class="toggle_checked" rel="filled" href="#"><?=$lang_filled?></a> 
+						</span>
+						<span class="button">
+							<a class="toggle_checked" rel="empty" href="#"><?=$lang_empty?></a>
+						</span>
+						<span class="button">
+							<a class="toggle_checked" rel="none" href="#"><?=$lang_none?></a>
+						</span>
+						<br class="clear"/>
+					</div>
+				<br/>
+
+	
+			<?php if ( ! empty($fields) ):?>
+				<?php foreach($fields_all as $name => $label):?>
+
+					<?php 
+						$checked = FALSE;
+						$field_class  = 'field_empty';
+
+						if( count( $toggle_fields ) == 0  ) 
+						{
+							if( isset( $filled[ $name ] ) )	$checked = TRUE;
+						}
+						elseif( $toggle_fields_all === TRUE ) $checked = TRUE;
+						elseif( in_array( $name, $toggle_fields ) ) $checked = TRUE;
+
+						if( isset( $filled[ $name ] ) ) $field_class = 'field_filled';
+					?>
+					<div class="visible_field_checkbox">
+						<input 
+							type="checkbox" 
+							value="<?=$name?>" <?php 
+								if( $checked === TRUE ) : 
+									?>checked="checked"<?php 
+								endif; ?> 
+							name="toggle_fields[]" 
+							class="<?=$field_class?>"
+							id="field_id_<?=$name?>"/>
+						<label for="field_id_<?=$name?>"><?=$label?></label>
+					</div>
+
+				<?php endforeach; ?>	
+			<?php endif;?>
+		</div>
+			<input type="submit" value="<?=$lang_search?>" name="submit" class="" />
+	
+
+	
+	</fieldset>
+</form>
+<p>&nbsp;</p>
+
+<?php if ( ! empty($entries) ):?>
+	<form method="post" action="<?=$delete_form_url?>">
+		<input type="hidden" name="XID" value="<?=$XID_SECURE_HASH?>" />
+
+	<div id="entries_holder" style="width:100%; overflow:auto;">
+		<table id="freeform-entries" class="mainTable padTable" 
+			   cellspacing='0'  cellpadding='0'  border='0' style="width:100%;">
+			<thead>
+				<tr>
+					<th  style="text-align:left; width : 3%;"></th>
+					<th  style="text-align:center; width : 2%">
+						<input type="checkbox" name="toggle_all_checkboxes" value=""/>
+					</th>
+
+					<?php 
+						$checked = FALSE;
+						if( $toggle_fields_all === TRUE ) $checked = TRUE;
+						
+					?>
+					<?php if( $checked OR in_array( 'edit', $toggle_fields ) ) : ?>
+						<th  style="text-align:left;"><?=$lang_edit?></th>
+					<?php endif; ?>
+
+					<?php if( $checked OR in_array( 'attachments', $toggle_fields ) ) : ?>				
+						<th  style="text-align:left;"><?=$lang_attachments?></th>
+					<?php endif; ?>
+
+					<?php if( $checked OR in_array( 'status', $toggle_fields ) ) : ?>
+						<th  style="text-align:left;"><?=$lang_status?></th>
+					<?php endif; ?>
+
+					<?php if( $checked OR in_array( 'date', $toggle_fields ) ) : ?>
+						<th  style="text-align:left;"><?=$lang_date?></th>
+					<?php endif; ?>
+
+					<?php if( $checked OR in_array( 'form_name', $toggle_fields ) ) : ?>
+						<th  style="text-align:left;"><?=$lang_form_name?></th>
+					<?php endif; ?>
+
+					<?php if( $checked OR in_array( 'template', $toggle_fields ) ) : ?>
+						<th  style="text-align:left;"><?=$lang_template?></th>
+					<?php endif; ?>
+
+			<?php if ( ! empty($fields) ):?>
+				<?php foreach($fields as $label):?>
+					<th   style="text-align:left;"><?=$label?></th>	
+				<?php endforeach; ?>	
+			<?php endif;?>
+				</tr>
+			</thead>
+			<tbody>	
+		<?php foreach ($entries as $entry):?>
+				<?php $class = $this->cycle('odd', 'even');?>		
+				<tr class="<?=$class?>">
+					<td><?=$entry['count']?></th>
+					<td style="text-align:center">
+						<input type="checkbox" name="toggle[]" 
+							   id="delete_box_<?=$entry['id']?>" value="<?=$entry['id']?>"/>
+					</td>
+
+					<?php 
+						$checked = FALSE;
+
+						if( $toggle_fields_all === TRUE ) $checked = TRUE;
+						
+					?>
+					<?php if( $checked OR in_array( 'edit', $toggle_fields ) ) : ?>
+						<td><a href="<?=$entry['edit_url']?>"><?=$lang_edit?></a></td>
+					<?php endif; ?>
+
+					<?php if( $checked OR in_array( 'attachments', $toggle_fields ) ) : ?>
+						<td>
+							<?php if ( isset($entry['attachment_url']) ):?>	
+								<a href="<?=$entry['attachment_url']?>"><?=$lang_attachments?></a>
+							<?php endif;?>
+						</td>
+					<?php endif; ?>
+
+					<?php if( $checked OR in_array( 'status', $toggle_fields ) ) : ?>
+						<td><?=$entry['status']?></td>
+					<?php endif; ?>
+
+					<?php if( $checked OR in_array( 'date', $toggle_fields ) ) : ?>
+						<td>
+							<span style="white-space:nowrap;"><?=$entry['date']?></span>
+						</td>
+					<?php endif; ?>
+
+					<?php if( $checked OR in_array( 'form_name', $toggle_fields ) ) : ?>
+						<td><?=$entry['form_name']?></td>
+					<?php endif; ?>
+
+					<?php if( $checked OR in_array( 'template', $toggle_fields ) ) : ?>
+						<td><?=$entry['template']?></td>
+					<?php endif; ?>
+					
+					
+			<?php if ( ! empty( $entry['fields'] ) ):?>
+				<?php foreach($entry['fields'] as $field):?>
+					<td><?=$field?></td>	
+				<?php endforeach; ?>	
+			<?php endif;?>
+				</tr>
+		<?php endforeach; ?>
+			</tbody>
+			<tfoot>
+				<?php $class = $this->cycle('odd', 'even');?>
+				
+				
+				<?php if ( $paginate ): ?>
+					<?php $class = $this->cycle('odd', 'even'); ?>
+						<tr class="<?=$class?>">
+							<td colspan="<?php echo (count($fields) + 8);?>">	
+								<?=$paginate?>
+							</td>
+						<tr>		
+				<?php endif; ?>
+				
+			</tfoot>
+		</table>
+	</div>
+	
+	<input type="submit" class="submit" name="submit" value="Delete" />
+		
+	</form>
+<?php else: ?>	
+	<p class="highlight"><?=$lang_no_entries?></p>
+<?php endif; ?>
+
+
+<script type="text/javascript">create_magic_checkboxes('freeform-entries');</script>
