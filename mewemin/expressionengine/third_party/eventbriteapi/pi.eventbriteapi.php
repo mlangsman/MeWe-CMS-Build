@@ -95,11 +95,24 @@ Class Eventbriteapi
 		
     }
 
+	/*
+	*  Check to see if there are any events in the list retrieved from Eventbrite
+	*/
 	public function isFutureEvent()
 	{
 		
-		return "true";
+		$returnValue;
 		
+		if (isset($this->events))
+		{
+			$returnValue = 'true';
+		}
+		else
+		{
+			$returnValue = 'false';
+		}
+		
+		return $returnValue;
 	}
 
 
