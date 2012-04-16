@@ -35,25 +35,61 @@ Class Eventbriteapi
 	private $app_key = 'CDTQ7VUSGFTI47U5RN';
 	private $user_key = '132930389027459422873';
 	
+	/*
+	*  Helper function to output debugiing info
+	*/
+	private function logger($output)
+	{
+		file_put_contents('php://stderr', $output, TRUE);
+	}
+	
     public function __construct()
     {
-		file_put_contents('php://stderr', print_r("** CONSTRUCTED!", TRUE));
+		
+		$this->logger("\n\n--------\n\n ** Eventbrite Class Constructed! ".time()."\n\n");
+		
+		/* start a new session if there isnt one already */	
+		if(!isset($_SESSION))
+		{
+			session_start();
+		}
+	
 	
         $this->EE =& get_instance();
 		
-		/* Connect to eventbrite and retrieve the list of events */
-		if( !isset($this->eb_client) )
+		
+		/* Fecth data from eventbrite if we dont have any data cached already or 
+ 		*  if there has been at least 30 seconds since we last fetched the data
+		*/
+		if (!isset($_SESSION['eventbrite_data']) || !isset($_SESSION['eventbrite_last_activity']) || (time() - $_SESSION['eventbrite_last_activity']) > 30)
 		{
-			file_put_contents('php://stderr', print_r("** eventbrite", TRUE));
+			$this->logger("\n\n** calling api\n");
 			$this->eb_client = new Eventbrite( array('app_key'  => $this->app_key,'user_key' => $this->user_key) );
 			
 			try {
-		        $this->events = $this->eb_client->user_list_events(array('event_statuses' => 'live,started', 'do_not_display' => 'venue,logo,style,organizer'));
+		        /* Run the eventbrite api query */
+				$this->events = $this->eb_client->user_list_events(array('event_statuses' => 'live,started', 'do_not_display' => 'venue,logo,style,organizer'));
+				
+				/* Store the results in a session variable */
+				$_SESSION['eventbrite_data'] = serialize($this->events);
+				
+				$this->logger("\n\n** debug session:\n".$_SESSION['eventbrite_data']);
+				
+				/* Set a timestamp in the session to record when the data was fecthed */
+				$_SESSION['eventbrite_last_activity'] = time();
+				
+				
 		    } catch ( Exception $e ) {
 
 		        $this->events = array();
 		    }
 			
+		}
+		else
+		{
+			/* Otherwise we can just retrieve the event data from the session */
+			$this->logger("\n\n** Retrieveing Cookie data\n");
+			$this->events = unserialize($_SESSION['eventbrite_data']);
 		}
 		
 		
@@ -61,7 +97,9 @@ Class Eventbriteapi
 
 	public function isFutureEvent()
 	{
+		
 		return "true";
+		
 	}
 
 
@@ -71,6 +109,7 @@ Class Eventbriteapi
 		{
 			return var_dump($this->events);
 		}	
+		
 	}
 
 	/*
@@ -128,9 +167,10 @@ Class Eventbriteapi
 			return $this->EE->TMPL->parse_variables($this->EE->TMPL->tagdata, $futureEvents);
 			
 		}
-
+		
 	    return;
 	}	
+	
 	
 	
 }
