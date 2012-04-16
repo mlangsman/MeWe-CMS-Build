@@ -1,0 +1,60 @@
+{embed="includes/header" page="{segment_1}"}
+
+				<div class="container"> 
+				
+					<div class="row">
+					
+						<div class="eight columns">
+							
+							{exp:channel:entries channel="news"}
+							
+								<div class="news-article">
+									<header>
+										<h2>{title}</h2> 
+										<p><span class="date">{entry_date format='%j %F %Y'}</span> by <strong>{author}</strong> <span class="comments">3 comments</span></p>
+									</header>
+									<div class="frame">
+										<!-- ><img src="http://lorempixel.com/450/250"/> -->
+										<img src="{news_image}" alt="{news_image_description}"/>
+									</div>
+									<p>{news_excerpt}</p>
+								</div> <!-- .news-article -->
+							
+							{/exp:channel:entries}
+							
+						</div> <!-- columns -->
+								
+							
+
+						<div class="four columns">	
+							<div class="inset rounded sidebar">
+								<h2>Recent News</h2>
+							
+								<div class="news-snippet">
+									<h3>Recent news headline</h3>
+									<h4>2nd February 2012</h4>
+									<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore ...</p>
+								</div> <!-- .news-snippet -->
+								
+								<div class="news-snippet">
+									<h3>Recent news headline</h3>
+									<h4>2nd February 2012</h4>
+									<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore ...</p>
+								</div> <!-- .news-snippet -->
+								
+								<div class="news-snippet">
+									<h3>Recent news headline</h3>
+									<h4>2nd February 2012</h4>
+									<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore ...</p>
+								</div> <!-- .news-snippet -->
+								
+							</div>
+		
+						</div> <!-- columns -->
+							
+			
+					</div> <!-- .row -->
+
+				</div> <!-- container -->
+
+{embed="includes/footer"}
