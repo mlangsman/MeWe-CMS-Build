@@ -1,0 +1,31 @@
+<form method="post" action="{path:update_profile}" class="nice custom">
+
+
+<h2>{lang:edit_your_profile}</h2>
+
+<label for="{lang:url}">Your Website</label>
+<input id="{lang:url}" name="{lang:url}" class="input-text" type="text" value='{url}' maxlength='75' />
+
+<label for="{lang:birthday}">Date of birth</label>
+{form:birthday_year} {form:birthday_month} {form:birthday_day}
+
+<label for="{lang:location}">Where are you based?</label>
+<input type='text' class="input-text" name='location' value='{location}' maxlength='50'/>
+
+<label for="{lang:bio}">Tell us about yourself!</label>
+<textarea name='bio' class='textarea' rows='12' cols='90'>{bio}</textarea>
+
+{custom_profile_fields}
+
+
+<div class='marginpad'>
+<input type='submit' class='submit' value='{lang:update}' />
+<br /><br />
+<span class="alert">*</span> {lang:required}
+</div>
+
+
+
+</table>
+
+</form>
