@@ -157,7 +157,8 @@ Class Eventbriteapi
 				$day = date('d', $date );
 				$month = strtoupper(date('M', $date));
 				$niceDate = date('jS F Y',$date);
-				$description = substr(strip_tags($nextEvent->description),0,200)."...";
+				$description = strip_tags($nextEvent->description);
+				$excerpt = $this->_truncate_words($description, 15, "...");
 				
 		
 				/* push all the event details onto a return array which we can use in the EE tags */
@@ -167,7 +168,8 @@ Class Eventbriteapi
 														'month' => $month,
 														'date' => $niceDate,
 														'logoURL' => $logoURL,
-														'description' => $description 
+														'description' => $description,
+														'excerpt' => $excerpt
 													)
 							);
 			}						
@@ -180,6 +182,16 @@ Class Eventbriteapi
 		
 	    return $this->EE->TMPL->parse_variables($this->EE->TMPL->tagdata, $nextEventDetails);
 	}
+	
+	function _truncate_words($content, $limit, $append) {
+    $num_words = str_word_count($content, 0);
+	if ($num_words > $limit) {
+	  $words = str_word_count($content, 2);
+      $pos = array_keys($words);
+      $content = substr($content, 0, ($pos[$limit]-1)) . $append;
+    }
+    return $content;
+    }
 	
 	
 }

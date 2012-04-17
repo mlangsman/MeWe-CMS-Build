@@ -24,7 +24,13 @@
 										</div>
 									{/if}
 
-									<p>{news_excerpt}</p>
+									<p>
+										{exp:eehive_hacksaw words="15" append="..."}
+												{news_article}
+										{/exp:eehive_hacksaw}
+										<a href="{title_permalink='news/view'}">Read More</a>
+									</p>
+									
 								</div> <!-- .news-article -->
 							
 							{/exp:channel:entries}

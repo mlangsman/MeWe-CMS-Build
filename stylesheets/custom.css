@@ -486,8 +486,13 @@ h3.news-heading, h3.event-heading
 	margin: 0 0 5px 0;
 	padding: 0;
 	vertical-align: top;
-	line-height:2rem;
+	line-height:1;
+	letter-spacing: -0.5px;
 	
+}
+
+h3.event-heading {
+	margin-bottom: 10px;
 }
 
 .news-article header p {
