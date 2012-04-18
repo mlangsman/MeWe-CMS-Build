@@ -1,0 +1,16 @@
+
+/* -------------------------------------------------- 
+   Specific styles for Contact-us page 
+   -------------------------------------------------- */
+
+#customDropdown {
+	display:none;
+}
+
+
+input[type="submit"].button.large {
+	padding:7px 0 !important;
+	display:block;
+	width:100px;
+}
+

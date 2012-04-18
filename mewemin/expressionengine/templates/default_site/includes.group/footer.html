@@ -34,7 +34,7 @@
 							<h3>Feedback</h3>
 							<div class="container">
 								<p>We’re always looking to improve what we do. If you have feedback we'd love to hear from you!</p>
-								<a href="#" class="medium radius button black-gradient">Get in touch</a>
+								<a href="{path='contact-us'}" class="medium radius button black-gradient">Get in touch</a>
 							</div>
 						</div>
 					</div>	
@@ -60,19 +60,17 @@
 	<script type="text/javascript" src="/javascripts/jquery.lightbox-0.5.js"></script>
 	
 	<!-- MeWe Custom JS -->
-	<!-- <script src="javascripts/custom.js"></script> -->
-	
-	<script type="text/javascript">
-	//     $(window).load(function() {
-	  //       $('#featured').orbit({directionalNav: false, timer: false});
-	  //   });
-	</script>
-	
+
+	<!-- JQuery Lightbox -- >
 	<script type="text/javascript">
 	$(function() {
 		$('.gallery a').lightBox(); // Select all links in object with gallery ID
 	});
 	</script>
+	
+	<!-- Social sharing javascript -->
+	{exp:socialeesta:scripts scripts="twitter|facebook" fb_app_id="	390128307694751"}
+	
 	
 	<!-- Live Reload Code -->
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>

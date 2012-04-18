@@ -12,7 +12,12 @@
 									<header>
 										<h2>{title}</h2> 
 										<p><span class="date">{entry_date format='%j %F %Y'}</span> by <strong>{author}</strong> <span class="comments">3 comments</span></p>
+										<div class="social-icons">
+						
+											{exp:socialeesta:like href="{title_permalink}" action="like" color="light" layout="standard"}
+										</div> <!-- /social-icons -->
 									</header>
+									
 									{if news_video_url !=""}
 										{exp:antenna url='{news_video_url}' vimeo_portrait='false' vimeo_title='false'}
 											<div class="flex-video">{embed_code}</div>

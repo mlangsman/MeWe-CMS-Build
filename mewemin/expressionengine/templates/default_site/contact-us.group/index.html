@@ -1,0 +1,45 @@
+{embed="includes/header" page="{segment_1}"}
+
+<div class="container">
+	<div class="row">
+		<div class="twelve columns">
+			
+					
+		{exp:freeform:form 
+			form:class="nice custom"
+			collection="Contact Us"
+			required="name|email"
+			return="/"
+			notify="info@projoosr.com"
+			template="default_template"
+			send_user_email="yes"
+			}
+							
+			        <h2>Get in touch</h2>
+					<p>We'd love to hear from you !</p>
+							
+							<label for="name">What's your name?</label>
+			                <input type="text" class="input-text" id="name" name="name" size="40" maxlength="35" />
+
+			                <label for="email">Your Email</label>
+			                <input type="text" class="input-text" id="from" name="email" size="40" maxlength="35" />
+
+
+			                <label for="subject">Subject</label>
+			                <input type="text" class="input-text" id="subject" name="subject" size="40" />
+
+			                <label for="message">Message</label>
+			                <textarea id="message" name="message" rows="18" class="large" >
+
+			                </textarea>
+
+			                <input name="submit" type='submit' value='Submit' class='large black button radius black-gradient' />
+
+			{/exp:freeform:form}
+	
+		</div> <!-- columns -->
+	</div> <!-- row -->
+	
+</div>
+
+{embed="includes/footer"}

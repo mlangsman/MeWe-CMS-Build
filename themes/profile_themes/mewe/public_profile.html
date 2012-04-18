@@ -1,4 +1,5 @@
 
+	
 				<div class="container public-profile"> 
 				
 					<div class="row">
@@ -7,6 +8,11 @@
 						
 						<!-- Get member ID from the url segment -->
 						{exp:member:custom_profile_data member_id=segment_2}
+						
+						<!-- Only show profiles for member sin the 'members' group -->
+						{if group_id !=5 } 
+							{redirect="404"} 
+						{/if}
 						
 							<!-- Members profile picture and name -->
 							<div class="row">
@@ -110,6 +116,7 @@
 			
 					</div> <!-- .row -->
 					
+			
 				{/exp:member:custom_profile_data}
 
 				</div> <!-- container -->
