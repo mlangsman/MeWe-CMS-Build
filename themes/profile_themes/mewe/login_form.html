@@ -1,16 +1,16 @@
 {form_declaration}
 
-<h2>Member Login</h2>
+<h2>{lang:login_required}</h2>
 
 <table class="tableborder" cellpadding="0" cellspacing="0" border="0" style="width:560px;" align="center">
 	<tr>
 
+<td class="tableRowHeadingBold" colspan="2">{lang:must_be_logged_in}</td>
 
 </tr><tr>
 
-<!-- ><td class="tableCellOne" align="right"><div class="itempadbig"><a href="{path:register}">{lang:member_registration}</a></div></td> -->
-
-
+<td class="tableCellOne" align="right"><div class="itempadbig"><a href="{path:register}">{lang:member_registration}</a></div></td>
+<td class="tableCellOne"><div class="itempadbig"><a href="{path:forgot}">{lang:forgot_password}</a></div></td>
 
 </tr><tr>
 
@@ -26,10 +26,8 @@
 
 <td class="tableCellOne" align="right"><input type="submit" class="submit" value="{lang:submit}" /></td>
 <td class="tableCellOne">
-	<div class="itempadbig"><a href="{path:forgot}">{lang:forgot_password}</a></div>
-<!-- <input type="checkbox" class="checkbox" name="auto_login" value="1" checked="checked" /> {lang:auto_login}<br />
-<input type="checkbox" class="checkbox" name="anon" value="1" checked="checked" /> {lang:show_name} -->
-
+<input type="checkbox" class="checkbox" name="auto_login" value="1" checked="checked" /> {lang:auto_login}<br />
+<input type="checkbox" class="checkbox" name="anon" value="1" checked="checked" /> {lang:show_name}
 </td>
 
 </tr>
