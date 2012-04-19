@@ -1,0 +1,231 @@
+
+<?php $this->view('header.html');?>
+
+
+<form action="<?=$this->base.AMP.'method=update_preferences'?>" method="post">
+	<input type="hidden" name="XID" value="{XID_SECURE_HASH}" />
+
+		<table border='0'  cellspacing='0' cellpadding='0' style='width:100%;'  class='tableBorder' >
+			<thead>
+				<tr>
+					<td style='width:50%;' class="tableHeadingAlt"><?=ee()->lang->line('user_preference')?></td>
+					<td style='width:50%;' class="tableHeadingAlt"><?=ee()->lang->line('user_setting')?></td>
+				</tr>
+			</thead>
+			
+			<tbody>
+
+				<?php $i = 1; ?>
+
+				<!-- email is username -->
+				<tr>
+					<td valign="top" style="width: 25%;" class="<?=($i % 2 ? 'tableCellOne' : 'tableCellTwo')?>Bold">
+						<label for="email_is_username">
+							<?=$lang_email_is_username?>
+						</label>
+						<div class="subtext">
+							<?=$lang_email_is_username_subtext?>
+						</div>
+					</td>
+					<td valign="top" style="width: 75%;" class="<?=($i++ % 2 ? 'tableCellOne' : 'tableCellTwo')?>Bold">
+						<label 	for="email_is_username_yes">Yes</label>
+						<input 	type="radio" name="email_is_username" 
+								value="y" id="email_is_username_yes" 
+								<?php if ($emiun) echo 'checked="checked"'; ?> style="width:20px;" /> &nbsp; 
+						
+						<label 	for="email_is_username_no">No</label>
+						<input 	type="radio" name="email_is_username" 
+								value="n" id="email_is_username_no" 
+								<?php if ( ! $emiun) echo 'checked="checked"'; ?> style="width:20px;" />
+					</td>
+				</tr>
+						
+				<!-- screen name override -->
+				<tr>
+					<td valign="top" style="width: 25%;" class="<?=($i % 2 ? 'tableCellOne' : 'tableCellTwo')?>Bold">
+						<label for="screen_name_override">
+							<?=$lang_screen_name_override?>
+						</label>
+						<div class="subtext">
+							<?=$lang_screen_name_override_subtext?>
+						</div>
+					</td>
+					<td valign="top" style="width: 75%;" class="<?=($i++ % 2 ? 'tableCellOne' : 'tableCellTwo')?>Bold">
+						<input type="text" dir="ltr" style="width:90%" 
+							   name="screen_name_override" value="<?=$pref_screen_name_override?>" 
+							   size="35" class="input" />
+					</td>
+				</tr>
+
+					<!-- category groups -->
+			<tr>
+				<td valign="top" style="width: 25%;" class="<?=($i % 2 ? 'tableCellOne' : 'tableCellTwo')?>Bold">
+					<label for="category_groups">
+						<?=$lang_category_groups?>
+					</label>
+					<div class="subtext">
+						<?=$lang_category_groups_subtext?>
+					</div>
+				</td>
+				<td valign="top" style="width: 75%;" class="<?=($i++ % 2 ? 'tableCellOne' : 'tableCellTwo')?>Bold">
+					<select class="select" name="category_groups[]" 
+							multiple="multiple" size="5" style="width:50%; padding:5px;">
+						<?php foreach ($category_groups AS $group_data): ?>
+							<option value="<?=$group_data['group_id']?>" <?php 
+								if ($group_data['selected']) echo 'selected="selected"';?> >
+								<?=$group_data['group_name']?>
+							</option>
+						<?php endforeach;?>	
+					</select>
+				</td>
+			</tr>
+			
+			
+			<tr>
+				<td valign="top" style="width: 25%;" class="<?=($i % 2 ? 'tableCellOne' : 'tableCellTwo')?>Bold">
+					<label for="key_expiration">
+						<?=$lang_key_expiration?>
+					</label>
+					<div class="subtext">
+						<?=$lang_key_expiration_subtext?>
+					</div>
+				</td>
+				<td valign="top" style="width: 75%;" class="<?=($i++ % 2 ? 'tableCellOne' : 'tableCellTwo')?>Bold">
+					<input type="text" dir="ltr" style="width:90%" 
+						   name="key_expiration" value="<?=$pref_key_expiration?>" 
+						   size="35" class="input">
+				</td>
+			</tr>
+			
+
+			</tbody>
+		</table>
+
+
+		<table border='0'  cellspacing='0' cellpadding='0' style='width:100%;'  class='tableBorder' >
+			<thead>
+				<tr>
+					<td style='width:50%;' class="tableHeadingAlt"><?=ee()->lang->line('email_notifications')?></td>
+					<td style='width:50%;' class="tableHeadingAlt"><?=ee()->lang->line('user_setting')?></td>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr>
+					<td valign="top" style="width: 25%;" class="<?=($i % 2 ? 'tableCellOne' : 'tableCellTwo')?>Bold">
+						<label for="welcome_email_subject"><?=$lang_welcome_email_subject?></label>
+					</td>
+					<td valign="top" style="width: 75%;" class="<?=($i++ % 2 ? 'tableCellOne' : 'tableCellTwo')?>Bold">
+						<input 	type="text" dir="ltr" 
+								style="width:90%" name="welcome_email_subject" 
+								value="<?=$pref_welcome_email_subject?>" size="35" class="input" />
+					</td>
+				</tr>
+				
+				<tr>
+					<td valign="top" style="width: 25%;" class="<?=($i % 2 ? 'tableCellOne' : 'tableCellTwo')?>Bold">
+						<label for="welcome_email_content">
+							<?=$lang_welcome_email_content?>
+						</label>
+						<div class="subtext">
+							<?=$lang_welcome_email_content_subtext?>
+						</div>
+					</td>
+					<td valign="top" style="width: 75%;" class="<?=($i++ % 2 ? 'tableCellOne' : 'tableCellTwo')?>Bold">
+						<textarea dir="ltr" style="width:100%" 
+								  cols="90" rows="15" 
+								  name="welcome_email_content" id="welcome_email_content" 
+								  class="textarea"><?=$pref_welcome_email_content?></textarea>
+					</td>
+				</tr>
+				
+				<tr>
+					<td valign="top" style="width: 25%;" class="<?=($i % 2 ? 'tableCellOne' : 'tableCellTwo')?>Bold">
+						<label for="member_update_admin_notification_emails">
+							<?=$lang_member_update_admin_notification_emails?>
+						</label>
+					</td>
+					<td valign="top" style="width: 75%;" class="<?=($i++ % 2 ? 'tableCellOne' : 'tableCellTwo')?>Bold">
+						<textarea 	dir="ltr" style="width:100%" 
+									cols="90" rows="2" 
+									name="member_update_admin_notification_emails" 
+									id="member_update_admin_notification_emails" 
+									class="textarea"><?=$pref_member_update_admin_notification_emails?></textarea>
+					</td>
+				</tr>
+				
+				<tr>
+					<td valign="top" style="width: 25%;" class="<?=($i % 2 ? 'tableCellOne' : 'tableCellTwo')?>Bold">
+						<label for="member_update_admin_notification_template">
+							<?=$lang_member_update_admin_notification_template?>
+						</label>
+						<div class="subtext">
+							<?=$lang_member_update_admin_notification_template_subtext?>
+						</div>
+					</td>
+					<td valign="top" style="width: 75%;" class="<?=($i++ % 2 ? 'tableCellOne' : 'tableCellTwo')?>Bold">
+						<textarea 	dir="ltr" style="width:100%" 
+									cols="90" rows="15" 
+									name="member_update_admin_notification_template" 
+									id="member_update_admin_notification_template" 
+									class="textarea"><?=$pref_member_update_admin_notification_template?></textarea>
+					</td>
+				</tr>
+				
+				<tr>
+					<td valign="top" style="width: 25%;" class="<?=($i % 2 ? 'tableCellOne' : 'tableCellTwo')?>Bold">
+						<label for="user_forgot_username_message">
+							<?=$lang_user_forgot_username_message?>
+						</label>
+						<div class="subtext">
+							<?=$lang_user_forgot_username_message_subtext?>
+						</div>
+					</td>
+					<td valign="top" style="width: 75%;" class="<?=($i++ % 2 ? 'tableCellOne' : 'tableCellTwo')?>Bold">
+						<textarea 	dir="ltr" style="width:100%" 
+									cols="90" rows="15" 
+									name="user_forgot_username_message" 
+									id="user_forgot_username_message" 
+									class="textarea"><?=$pref_user_forgot_username_message?></textarea>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+	<div class='clearfix' >&nbsp;</div>
+
+	<div>
+		<input type="hidden" name="name" value="user_authors" />
+	</div>
+	
+	<table class="tableBorder" border='0'  cellspacing='0' cellpadding='0' style='margin-top: 5px; width:100%;' >
+		<thead>
+			<tr>
+				<th style="text-align:left; width:50%" class="tableHeadingAlt"><?=ee()->lang->line('channels')?></th>
+				<th style="text-align:left; width:50%" class="tableHeadingAlt"><?=ee()->lang->line('user_authors_publish_tab_label')?></th>
+			</tr>
+		</thead>
+	
+		<tbody>
+			<?php foreach($channels as $channel_id => $channel_data) : ?>
+				<?php $style = $caller->cycle('tableCellOne', 'tableCellTwo');?>
+				<tr>
+					<td valign="top" class="<?=($i % 2 ? 'tableCellOne' : 'tableCellTwo')?>Bold"  style='width:45%;'>
+						<label><?=$channel_data['site_label']?> :: <?=$channel_data['channel_title']?></label>
+						</td>
+					<td  class='<?=($i % 2 ? 'tableCellOne' : 'tableCellTwo')?>' >
+						<input dir='ltr' style='width:30%' type='text' name='channel_id[<?=$channel_id?>]' id='channel_id<?=$channel_id?>' value='<?=$caller->output($channel_data['tab_label'])?>' size='' maxlength='' class=''  />
+					</td>
+				</tr>
+			<?php endforeach; ?>
+		</tbody>
+	</table>
+	<div class='clearfix' >&nbsp;</div>
+	<div class='itemWrapper'>
+		<input type="submit" name="submit" value="<?=ee()->lang->line('update')?>" class="submit"  />
+	</div>
+
+</form>
+
+
+<?php $this->view('footer.html');?>

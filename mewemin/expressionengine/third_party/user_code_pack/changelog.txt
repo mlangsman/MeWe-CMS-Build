@@ -1,0 +1,7 @@
+Solspace - User Code Pack - Change Log
+
+1.0.1 (April 16, 2012)
+ - Fixed a bug where {last_comment_date} in main/index was incorrect if no comments had been submitted.
+
+1.0.0 (December 9, 2010)
+ - Initial release.

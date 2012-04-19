@@ -1,0 +1,129 @@
+{embed="includes/header"}
+
+<div class="container public-profile"> 
+
+	<div class="row">
+	
+		<div class="eight columns main-profile">
+		
+		{exp:user:stats}
+		<!-- Get member ID from the url segment -->
+		
+		<!-- Only show profiles for member sin the 'members' group  (5)-->
+		{if group_id !=5 } 
+			{redirect="404"} 
+		{/if}
+		
+			<!-- Members profile picture and name -->
+			<div class="row">
+				<div class="six columns">
+					<div class="frame">
+						<!-- if photo -->
+						{if photo_filename != ""}
+								<img src="{photo_url}{photo_filename}"/>
+						{if:else}
+							<img src="http://placehold.it/250x250"/>
+						{/if}
+					</div>
+				</div>
+
+				
+				<div class="six columns">
+					<h1>{screen_name}</h1>
+					<p class="creative-sector">{creative_sector}</p>
+				</div>
+			</div> <!-- row -->
+				
+			<!-- About Me and other information -->
+			<div class="row">
+
+				<div class="twelve columns">
+					
+					<!-- network icons -->
+
+						<div class="row">
+								<div class="twelve columns">
+										{if facebook != ""}
+											<a href="{facebook}"><img src="/img/profile-icon-facebook.png" alt="facebook logo"/></a>
+										{/if}
+							
+										{if twitter != ""}
+											<a href="{twitter}"><img src="/img/profile-icon-twitter.png" alt="twitter logo"/>
+										{/if}
+							
+										{if linkedin != ""}
+											<a href="{linkedin}"><img src="/img/profile-icon-linkedin.png" alt="linked in logo"/>
+										{/if}
+								</div> <!-- columns -->
+						</div> <!-- row -->
+
+					
+				
+					<h3>About me</h3>
+					<p>{bio}</p>
+
+					<h3>Current projects</h3>
+					<p>{current_projects}</p>									
+
+					
+					
+				</div> <!-- columns -->
+
+			</div> <!-- row -->
+				
+				
+		</div> <!-- columns -->		
+										
+
+		<div class="four columns">	
+			<div class="inset rounded sidebar">
+				<img src="http://placehold.it/100x100" class="member-logo" />
+				<h3 class="company-name">{company_name}</h3>
+				<p class="contact-details">
+					{if company_address != ""}
+						{company_address}<br />
+					{/if}
+					
+					{email}</br />
+					
+					{if company_phone != ""}
+						{company_phone}<br />
+					{/if}
+					
+					{if url != ""}
+						{url}<br />
+					{/if}
+				</p>
+				
+				{if company_description != ""}
+					<h2>Business description</h2>
+					<p>{company_description}</p>
+				{/if}
+				
+				{if skills != ""}
+					<h2>Skills</h2>
+					<p>{skills}</p>
+				{/if}
+				
+				{if experience != ""}
+					<h2>Experience</h2>
+					<p>{experience}</p>
+				{/if}
+											
+			</div>
+
+		</div> <!-- columns -->
+			
+
+	</div> <!-- .row -->
+	
+
+{/exp:user:stats}
+
+</div> <!-- container -->
+
+{embed="includes/footer"}
+
+
+
+

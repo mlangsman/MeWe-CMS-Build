@@ -1,0 +1,47 @@
+
+/* -------------------------------------------------- 
+   Specific styles for edit_profile page 
+   -------------------------------------------------- */
+
+h4 {
+	margin-bottom: 20px;
+	border-bottom: solid #F28C26 1px;
+}
+
+div.profile-form {
+	border-bottom: solid #F28C26 1px;
+}
+
+#customDropdown {
+	display:none;
+}
+
+/* Styles to line up opt-in button and label */
+
+input[type="submit"] {
+	margin: 20px 0 20px 0;
+}
+
+input[type="submit"].button.large {
+	padding:7px 0 !important;
+	display:block;
+	width:100px;
+}
+
+.profile-section {
+	padding:0px 0 20px 0;
+	margin-bottom:20px;
+}
+
+label {
+	margin-bottom: 15px !important;
+}
+
+.frame img, .frame {
+
+}
+
+
+form {
+	margin:0;
+}
