@@ -1,145 +1,156 @@
-{embed="includes/header" page="edit_profile"}
 
-<div class="container">
+{if logged_in}
 
-	{exp:user:edit form:class="nice custom" dynamic="off"}
+	{embed="includes/header" page="edit_profile"}
+	
+	<div class="container">
 
-<h1>Edit your profile</h1>
+		{exp:user:edit form:class="nice custom" dynamic="off"}
+
+	<h1>Edit your profile</h1>
 		
-	<div class="row profile-form">
+		<div class="row profile-form">
 
-		<div class="six columns">
+			<div class="six columns">
 	
-			<div class="profile-section">
+				<div class="profile-section">
 	
-				<h4>Contact Details</h4>
+					<h4>Contact Details</h4>
 	
-				<p>
-					<label for="email">Email address</label>
-					<input type='text' class="input-text" name='email' value='{email}' maxlength='50'/>		
+					<p>
+						<label for="email">Email address</label>
+						<input type='text' class="input-text" name='email' value='{email}' maxlength='50'/>		
 
-				<p>
-					<label for="location">Where are you based?</label>
-					<input type='text' class="input-text" name='location' value='{location}' maxlength='50'/>
-				</p>
+					<p>
+						<label for="location">Where are you based?</label>
+						<input type='text' class="input-text" name='location' value='{location}' maxlength='50'/>
+					</p>
 	
-				<p>
-					<label for="url">Your Website</label>
-					<input id="url" name="url" class="input-text" type="text" value='{url}' maxlength='75' />
-				</p>
+					<p>
+						<label for="url">Your Website</label>
+						<input id="url" name="url" class="input-text" type="text" value='{url}' maxlength='75' />
+					</p>
 	
-				<p>	
-					<label for="facebook">{lang:facebook:label}</label>
-					<input type='text' name='facebook' class='input-text' value="{facebook}" />
-				</p>	
+					<p>	
+						<label for="facebook">{lang:facebook:label}</label>
+						<input type='text' name='facebook' class='input-text' value="{facebook}" />
+					</p>	
 	
-				<p>	
-					<label for="twitter">{lang:twitter:label}</label>
-					<input type='text' name='twitter' class='input-text' value="{twitter}" />
-				</p>
+					<p>	
+						<label for="twitter">{lang:twitter:label}</label>
+						<input type='text' name='twitter' class='input-text' value="{twitter}" />
+					</p>
 
-				<p>	
-					<label for="linkedin">{lang:linkedin:label}</label>
-					<input type='text' name='linkedin' class='input-text' value="{linkedin}" />
-				</p>
+					<p>	
+						<label for="linkedin">{lang:linkedin:label}</label>
+						<input type='text' name='linkedin' class='input-text' value="{linkedin}" />
+					</p>
 
-			</div>
+				</div>
 			
-			<div class="profile-section">	
+				<div class="profile-section">	
 		
-				<h4>Profile photo</h4>
+					<h4>Profile photo</h4>
 
-					<img src="{photo_url}{photo_filename}" width="{photo_width}" height="{photo_height}" />
+						<img src="{photo_url}{photo_filename}" width="{photo_width}" height="{photo_height}" />
 	
-					<label for="photo_filename">Upload a New Photo</label>
-					<input type="file" name="photo_filename" />
+						<label for="photo_filename">Upload a New Photo</label>
+						<input type="file" name="photo_filename" />
 
-			</div>
+				</div>
 
-			<div class="profile-section">
-				<h4>Bio</h4>
-				<p>
-					<label for="bio">Tell us a bit about yourself</label>
-					<textarea name='bio' class='textarea large' rows="10">{bio}</textarea>
-				</p>
+				<div class="profile-section">
+					<h4>Bio</h4>
+					<p>
+						<label for="bio">Tell us a bit about yourself</label>
+						<textarea name='bio' class='textarea large' rows="10">{bio}</textarea>
+					</p>
 	
-			</div>
+				</div>
 
 
 			
 			
 	
-		</div> <!-- /.columns -->
+			</div> <!-- /.columns -->
 	
-		<div class="six columns">
+			<div class="six columns">
 	
-			<div class="profile-section">
+				<div class="profile-section">
 	
-				<h4>Your Company</h4>
+					<h4>Your Company</h4>
 
-				<p>	
-					<label for="company_name">{lang:company_name:label}</label>
-					<input type='text' name='company_name' class='input-text' value="{company_name}" />
-				</p>
+					<p>	
+						<label for="company_name">{lang:company_name:label}</label>
+						<input type='text' name='company_name' class='input-text' value="{company_name}" />
+					</p>
 	
-				<p>
+					<p>
 	
 		
-				<label for="avatar_filename">Company Logo</label>
+					<label for="avatar_filename">Company Logo</label>
 	
-				<img src="{avatar_url}{avatar_filename}" width="{avatar_width}" height="{avatar_height}" /></p>
+					<img src="{avatar_url}{avatar_filename}" width="{avatar_width}" height="{avatar_height}" /></p>
 
-				<label for="avatar_filename">Upload a new logo</label>
-				<input type="file" name="avatar_filename" /></p>
+					<label for="avatar_filename">Upload a new logo</label>
+					<input type="file" name="avatar_filename" /></p>
 	
-				<p>	
-					<label for="company_description">{lang:company_description:label}</label>
-					<textarea name='company_description' class='textarea large'>{company_description}</textarea>
-				</p>
+					<p>	
+						<label for="company_description">{lang:company_description:label}</label>
+						<textarea name='company_description' class='textarea large'>{company_description}</textarea>
+					</p>
 	
 	
-				<p>	
-					<label for="current_projects">{lang:current_projects:label}</label>
-					<textarea name='bio' class='textarea large'>{bio}</textarea>
-				</p>
+					<p>	
+						<label for="current_projects">{lang:current_projects:label}</label>
+						<textarea name='bio' class='textarea large'>{bio}</textarea>
+					</p>
 
-			</div>
+				</div>
 			
-			<div class="profile-section">
+				<div class="profile-section">
 	
-				<h4>Skills and Experience</h4>
+					<h4>Skills and Experience</h4>
 
-				<p>	
-					<label for="creative_sector">{lang:creative_sector:label}</label>
-					<select name="creative_sector"> 
-					{select_creative_sector} 
-					<option value="{value}" {selected}>{value}</option> 
-					{/select_creative_sector} 
-					</select>
-				</p>	
+					<p>	
+						<label for="creative_sector">{lang:creative_sector:label}</label>
+						<select name="creative_sector"> 
+						{select_creative_sector} 
+						<option value="{value}" {selected}>{value}</option> 
+						{/select_creative_sector} 
+						</select>
+					</p>	
 
-				<p>	
-					<label for="skills">{lang:skills:label}</label>
-					<textarea name='skills' class='textarea large'>{skills}</textarea>
-				</p>
+					<p>	
+						<label for="skills">{lang:skills:label}</label>
+						<textarea name='skills' class='textarea large'>{skills}</textarea>
+					</p>
 
-				<p>	
-					<label for="expereince">{lang:experience:label}</label>
-					<textarea name='experience' class='textarea large'>{experience}</textarea>
-				</p>	
+					<p>	
+						<label for="expereince">{lang:experience:label}</label>
+						<textarea name='experience' class='textarea large'>{experience}</textarea>
+					</p>	
 
-			</div>
+				</div>
 	
-		</div> <!-- /.columns -->
+			</div> <!-- /.columns -->
 		
-	</div> <!-- /.row -->
+		</div> <!-- /.row -->
 
-<input type="submit" value="Do it !" class="large black button radius black-gradient" name="submit">
+	<input type="submit" value="Do it !" class="large black button radius black-gradient" name="submit">
 
 	
-{/exp:user:edit}
+	{/exp:user:edit}
 
 
-</div> <!-- /container -->
+	</div> <!-- /container -->
 
-{embed="includes/footer"}
+
+
+	{embed="includes/footer"}
+
+{if:else}
+
+	{redirect='member/login'}
+
+{/if}

@@ -1,31 +1,18 @@
-{embed="includes/header"}
+{if logged_in}
 
-<div class="container community"> 
+	{if segment_2 != ""} 
 
-		<h1>Community</h1>
-		<ul class="block-grid six-up mobile community-grid">
-		
-			{exp:user:users group_id='5' dynamic='off' }
-			
-			<li>
-				<!-- link to individual member profile page -->
-				<a href="/members/profile/{member_id}">
-					<div class="frame">
-						{if photo_filename != ""}
-							<img src="{photo_url}{photo_filename}">
-						{if:else}
-							<img src="http://placehold.it/120x120">
-						{/if}
-							
-					</div>
-				<p class="orange-header-bar">{screen_name}</p></a>
-			</li>
-			       
-			{/exp:user:users}
-			
-		</ul>
-		
+		{embed="members/profile" member="{segment_2}"}
+	
+	{if:else}
 
-</div> <!-- container -->
+		{embed="members/community"}
 
-{embed="includes/footer"}
+	{/if}
+	
+{if:else}
+
+	{redirect='member/login'}
+
+{/if}
+	
