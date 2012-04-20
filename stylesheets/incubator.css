@@ -14,6 +14,14 @@ h3 {
 	font-size: 2.0rem;	
 }
 
+h4 {
+	font-family: Candara, sans-serif;
+	font-size: 16px;
+	font-size: 1.6rem;	
+}
+
+
+
 .inset {
 	margin: 0;
 	padding-bottom: 50px;
@@ -31,11 +39,11 @@ h3 {
 }
 
 
-
 .inset h3 {
 	font: 18px arial, sans-serif;
 	font-weight: bold;
 	margin-bottom: 20px;
+	color: black;
 }
 
 
