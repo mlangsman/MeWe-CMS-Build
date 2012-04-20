@@ -49,10 +49,10 @@ p {
 
 .service h2, .sidebar h2, .orange-header-bar {
 	display:block;
-	/* background: url('/img/header_background_orange.png') top left no-repeat;*/
 	/* background: url('/img/small_orange_button.png') top left repeat; */
 	/* background: #E38424; */
-	background: #F28C26; 
+	background: #F28C26;
+	background: url('/img/header_background_orange.png') top left no-repeat; 
 	border: 0px solid #FFC060;
 	height: 30px;
 	line-height:1.8em;	padding: 0px 0px 0px 20px;
@@ -83,6 +83,7 @@ p {
 	border-radius: 3px;
 	padding:10px;
 	margin-bottom:30px;
+	border: 1px solid #969696;
 }
 
 .frame img {
@@ -495,7 +496,7 @@ h3.event-heading {
 	margin-bottom: 10px;
 }
 
-.news-article header p {
+.news-article header p  {
 		font-family: 12px 'Helvetica Neue', Helvetica, Sans-Serif;
 		font-size:1.2rem;
 		margin-bottom:10px;
@@ -510,7 +511,7 @@ h3.event-heading {
 	font-weight: bold;
 }
 
-.news-article p.excerpt {
+.news-article p.excerpt, .event-details p.excerpt  {
 	font: 13px Helvetica, Sans-Serif;
 	font-size: 1.3rem;
 	line-height: 1.5rem;
@@ -538,6 +539,7 @@ h3.event-heading {
 	font-weight:bold;
 	margin:0;
 	text-transform:uppercase;
+	line-height:27px;
 	
 }
 

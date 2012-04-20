@@ -8,6 +8,9 @@
 	color: #F28C26;
 }
 
+header {
+	margin-bottom: 20px;
+}
 .sidebar h3 {
 	margin:0;
 	font-family: arial, sans-serif;
@@ -41,5 +44,9 @@
 
 .news-article:last-child {
 	border-bottom:none;
+}
+
+.news-snippet h4 {
+	color : black;
 }
 
