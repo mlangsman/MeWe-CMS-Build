@@ -140,13 +140,15 @@
 					<div class="row">
 						<div class="seven columns faq-section">
 							<h2>Frequently asked questions</h2>
-							
-							{exp:channel:entries channel="faq" orderby="faq_order" show_expired="yes" show_future_entries="yes" sort="asc"}
+						
+						{exp:channel:entries channel="membership"}	
+							{faq}
 								<div class="question-and-answer">
-									<p class="question">{faq_question}</p>
-									<p class="answer">{faq_answer}</p>
+									<p class="question">{question}</p>
+									<p class="answer">{answer}</p>
 								</div>
-							{/exp:channel:entries}
+							{/faq}
+						{/exp:channel:entries}
 							
 						</div><!-- columns -->
 							

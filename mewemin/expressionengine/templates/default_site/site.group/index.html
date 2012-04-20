@@ -1,12 +1,14 @@
 {embed="includes/header"}
 
+				{exp:channel:entries channel="home"}
+	
 				<div class="container"> 
 
 					<div class="row" id='topSection'>
 
 						<div class="six columns push-six" id="straplineArea">
 								<div class="cta-container">
-									<h1>We provide access to the best <a>funding</a>, <a>mentoring</a> and <a>incubation</a> to propel your creative business.</h1>
+									<h1>{strapline}</h1>
 									<a class="huge button black radius black-gradient hide-on-phones" href="/sign-up"><span>Join today</span></a>
 								</div>
 						</div> <!-- #straplineArea -->
@@ -24,7 +26,7 @@
 					</div> <!-- #topSection -->
 			
 					<div class="row services">
-						{exp:channel:entries channel="home"}
+						
 						
 							<div class="quarter columns">
 								<div class="service rounded">
