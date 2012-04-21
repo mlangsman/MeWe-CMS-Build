@@ -21,7 +21,6 @@ h4 {
 }
 
 
-
 .inset {
 	margin: 0;
 	padding-bottom: 50px;
@@ -61,6 +60,8 @@ h4 {
 
 .ethos p {
 	margin-bottom: 0;
+	font-size: 13px;
+	font-size: 1.3rem;	
 }
 
 .cta {
