@@ -5,7 +5,7 @@
 	
 	<div class="container">
 
-		{exp:user:edit form:class="nice custom" dynamic="off"}
+	{exp:user:edit form:class="nice custom validatingForm" form:id="profile-form"  dynamic="off"}
 
 	<h1>Edit your profile</h1>
 		
@@ -19,7 +19,8 @@
 	
 					<p>
 						<label for="email">Email address</label>
-						<input type='text' class="input-text" name='email' value='{email}' maxlength='50'/>		
+						<input type='text' class="input-text required email" name='email' id="email" value='{email}' type="email" maxlength='50'/>	
+						
 
 					<p>
 						<label for="location">Where are you based?</label>

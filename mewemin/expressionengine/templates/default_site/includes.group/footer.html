@@ -59,7 +59,7 @@
 {/exp:channel:entries}
 
 	<!-- Included JS Files -->
-	<script src="/javascripts/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<!-- Combine and Compress These JS Files -->
 	<script src="/javascripts/jquery.reveal.js"></script>
 	<script src="/javascripts/jquery.orbit-1.4.0.js"></script>
@@ -67,12 +67,28 @@
 	<script src="/javascripts/jquery.placeholder.min.js"></script>
 	<script src="/javascripts/jquery.tooltips.js"></script>
 	<!-- End Combine and Compress These JS Files -->
+
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>	
+	
+	<script type="text/javascript">
+	$.validator.setDefaults({
+		submitHandler: function() { alert("submitted!"); }
+	});
+
+	$().ready(function() {
+		// validate the comment form when it is submitted
+		$(".validatingForm").validate();
+
+
+	});
+	</script>
+	
 	<script src="/javascripts/app.js"></script>
 	<script type="text/javascript" src="/javascripts/jquery.lightbox-0.5.js"></script>
 	
 	<!-- MeWe Custom JS -->
 
-	<!-- JQuery Lightbox -- >
+	<!-- JQuery Lightbox -->
 	<script type="text/javascript">
 	$(function() {
 		$('.gallery a').lightBox(); // Select all links in object with gallery ID
