@@ -18,18 +18,18 @@
 					<h4>Contact Details</h4>
 	
 					<p>
-						<label for="email">Email address</label>
+						<label for="email">* Email address</label>
 						<input type='text' class="input-text required email" name='email' id="email" value='{email}' type="email" maxlength='50'/>	
 						
 
 					<p>
 						<label for="location">Where are you based?</label>
-						<input type='text' class="input-text" name='location' value='{location}' maxlength='50'/>
+						<input type='text' class="input-text required" name='location' value='{location}' maxlength='50'/>
 					</p>
 	
 					<p>
 						<label for="url">Your Website</label>
-						<input id="url" name="url" class="input-text" type="text" value='{url}' maxlength='75' />
+						<input id="url" name="url" class="input-text" type="url" value='{url}' maxlength='75' />
 					</p>
 	
 					<p>	
@@ -64,7 +64,7 @@
 					<h4>Bio</h4>
 					<p>
 						<label for="bio">Tell us a bit about yourself</label>
-						<textarea name='bio' class='textarea large' rows="10">{bio}</textarea>
+						<textarea name='bio' class='textarea large' type="text" rows="10">{bio}</textarea>
 					</p>
 	
 				</div>
@@ -128,7 +128,7 @@
 					</p>
 
 					<p>	
-						<label for="expereince">{lang:experience:label}</label>
+						<label for="experience">{lang:experience:label}</label>
 						<textarea name='experience' class='textarea large'>{experience}</textarea>
 					</p>	
 

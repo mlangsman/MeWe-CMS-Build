@@ -13,9 +13,8 @@
 						<div class="six columns">	
 						
 							{exp:freeform:form 
-								form:class="nice custom"
+								form:class="nice custom validatingForm"
 								collection="Sign Up"
-								required="name|email"
 								return="/"
 								notify="info@projoosr.com"
 								template="default_template"
@@ -25,20 +24,20 @@
 							
 								<div class="row">
 									<div class="six columns">	
-										<label for="first_name">Name</label>
-										<input id="first_name" name="first_name" class="input-text" type="text">
+										<label for="first_name">Name *</label>
+										<input id="first_name" name="first_name" class="input-text required" type="text">
 									</div><!-- columns -->
 								
 									<div class="six columns">	
-										<label for="last_name">Surname</label>
-										<input id="last_name" name="last_name" class="input-text" type="text">
+										<label for="last_name">Surname *</label>
+										<input id="last_name" name="last_name" class="input-text required" type="text">
 									</div><!-- columns -->
 								</div><!-- row -->
 							
 								<div class="row">
 									<div class="twelve columns">
-											<label for="email">Email</label>
-											<input id="email" name="email" class="input-text" type="text">
+											<label for="email">Email *</label>
+											<input id="email" name="email" class="input-text required email" type="text">
 									</div>
 								</div>	
 													

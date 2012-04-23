@@ -144,6 +144,16 @@ p.small {
 .quarter.columns:first-child { margin-left: 0; }
 .quarter.columns:last-child { margin-left: 0.8%; }
 
+
+/*	--------------------------------------------------
+	Custom Form Alerts
+	-------------------------------------------------- */
+
+	label.error { width: 90% !important; display: block; padding: 6px 5%; font-weight: bold; font-size: 13px; background: #eee; border: 1px solid rgba(0,0,0,0.1); margin-bottom: 12px; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; text-shadow: 0 1px rgba(255,255,255,0.9); position: relative; }
+	label.error { background-color: #f68b01; color: #fff; text-shadow: 0 -1px rgba(0,0,0,0.3); }
+
+
+
 /*	--------------------------------------------------
    	Buttons
 	-------------------------------------------------- */
