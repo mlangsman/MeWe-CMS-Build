@@ -1,0 +1,70 @@
+
+{if logged_in}
+
+	{embed="includes/header" page="edit_profile"}
+	
+	<div class="container">
+
+	{exp:user:edit form:class="nice custom validatingForm" return="members/edit_account/success" error_page="member/error" dynamic="off"}
+
+	{if segment_3 == "success"}
+		<div class="alert-box success">You've successfully updated your account!</div>
+	{/if}
+
+	<h1>Edit your account</h1>
+		
+		<div class="row profile-form">
+
+			<div class="six columns">
+	
+				<div class="profile-section">
+	
+				
+					<p>
+						<label for="current_password">* Your current password is required to change your account details</label>
+						<input type='password' autocomplete="off" class="input-text required password" name='current_password' id="current_password" value='' type="password"/>	
+					</p>
+				
+				</div>
+	
+				<div class="profile-section">
+				
+					<h4>Change Your Password</h4>
+					
+					<p>
+						<label for="new_password">New Password</label>
+						<input type='password' class="input-text password" name='password' id="password" value='' type="password"/>	
+					</p>
+					
+					<p>
+						<label for="password_confirm">Confirm Password</label>
+						<input type='password' class="input-text password" name='password_confirm' id="password_confirm" value='' type="password"/>
+					</p>
+				</div> <!-- profile-section -->
+
+	
+			</div> <!-- /.columns -->
+	
+			<div class="six columns">
+
+			</div> <!-- /.columns -->
+		
+		</div> <!-- /.row -->
+
+	<input type="submit" value="Do it !" class="large black button radius black-gradient" name="submit">
+
+	
+	{/exp:user:edit}
+
+
+	</div> <!-- /container -->
+
+
+
+	{embed="includes/footer"}
+
+{if:else}
+
+	{redirect='member/login'}
+
+{/if}

@@ -1,0 +1,59 @@
+{exp:channel:entries channel="about"}
+
+	{{embed:field}}
+		<li> 
+			
+			{if video == ""}
+				<a  
+					 href="http://pseudo01.hddn.com/vod/demo.flowplayervod/flowplayer-700.flv"
+					 id="{embed:field}{row_id}" style="display:block;"
+					class="flowplayer flex-video widescreen"> 
+				</a> 
+
+				<!-- this will install flowplayer inside previous A- tag. -->
+				<script>
+					
+					flowplayer("{embed:field}{row_id}", "/javascripts/flowplayer/flowplayer-3.2.10.swf",
+					{
+						plugins: {controls: null},
+						playlist: [
+						
+
+						    // this first PNG clip works as a splash image
+						    {
+						        url: '{photo}', 
+						        scaling: 'scale'
+						    },
+
+
+						    // second clip is a video. when autoPlay is set to false the splash screen will be shown
+						    {
+						        url: 'http://pseudo01.hddn.com/vod/demo.flowplayervod/flowplayer-700.flv', 
+						        autoPlay: false, 
+
+						        // video will be buffered when splash screen is visible
+						        autoBuffering: true 
+						    }
+						]
+
+					});
+					
+				</script>
+
+			{if:else}
+			
+					{if photo != ""}
+						<img src="{photo}">
+					{else:if}
+						<img src="http://lorempixel.com/200/120">
+					{/if}
+			{/if}
+
+			<h3>{name}</h3>
+			<p>{bio}</p>
+		
+		</li>
+		
+	{/{embed:field}}
+	
+{/exp:channel:entries}

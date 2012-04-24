@@ -81,7 +81,11 @@
 
 			<div class="four columns">	
 				<div class="inset rounded sidebar">
-					<img src="http://placehold.it/100x100" class="member-logo" />
+					{if avatar_filename != "" }
+						<img src="{avatar_url}{avatar_filename}" class="member-logo" />
+					{if:else}
+						<img src="http://placehold.it/100x100" class="member-logo" />
+					{/if}
 					<h3 class="company-name">{company_name}</h3>
 					<p class="contact-details">
 						{if company_address != ""}

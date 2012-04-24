@@ -5,7 +5,11 @@
 	
 	<div class="container">
 
-	{exp:user:edit form:class="nice custom validatingForm" form:id="profile-form"  dynamic="off"}
+	{exp:user:edit form:class="nice custom validatingForm" return="members/edit_profile/success" error_page="member/error" dynamic="off"}
+
+	{if segment_3 == "success"}
+		<div class="alert-box success">You've successfully updated your profile!</div>
+	{/if}
 
 	<h1>Edit your profile</h1>
 		
@@ -52,9 +56,12 @@
 				<div class="profile-section">	
 		
 					<h4>Profile photo</h4>
-
+					{if photo_filename != ""}
 						<img src="{photo_url}{photo_filename}" width="{photo_width}" height="{photo_height}" />
-	
+					{if:else}
+						<img src="/img/default_user_photo_small.png">
+					{/if}
+
 						<label for="photo_filename">Upload a New Photo</label>
 						<input type="file" name="photo_filename" />
 
