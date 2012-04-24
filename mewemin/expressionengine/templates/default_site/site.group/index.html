@@ -119,25 +119,24 @@
 
 						<div class="five columns">	
 							<h2>Upcoming events</h2>
-							<div class="row event">
-							{exp:eventbriteapi:upcomingEvents limit='1'}
-							
-								<div class="three columns">
-										<a href='{url}'>
-											<div class="date-box">
-												<p class="month">{month}</p>
-												<p class="day">{day}</p>
-											</div> <!-- date-box -->
-										</a>
-								</div>
-								<div class="nine columns">
-									<div class="event-details">
-										<h3 class="event-heading"><a href='{url}'>{title}</a></h3>
-										<p class="excerpt">{excerpt}</p>
-									</div> <!-- date- -->	
-								</div>
-							</div>
-							{/exp:eventbriteapi:upcomingEvents}
+								{exp:eventbriteapi:upcomingEvents}
+									<div class="row event">
+										<div class="three columns">
+												<a href='{url}'>
+													<div class="date-box">
+														<p class="month">{month}</p>
+														<p class="day">{day}</p>
+													</div> <!-- date-box -->
+												</a>
+										</div>
+										<div class="nine columns">
+											<div class="event-details">
+												<h3 class="event-heading"><a href='{url}'>{title}</a></h3>
+												<p class="excerpt">{excerpt}</p>
+											</div> <!-- date- -->	
+										</div>
+									</div>
+								{/exp:eventbriteapi:upcomingEvents}
 						</div> <!-- sidebar -->
 							
 			

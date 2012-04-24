@@ -35,12 +35,19 @@ Class Eventbriteapi
 	private $app_key = 'CDTQ7VUSGFTI47U5RN';
 	private $user_key = '132930389027459422873';
 	
+	/* Turn debugging on/off */
+	private $debug = true;
+	
+	
 	/*
 	*  Helper function to output debugiing info
 	*/
 	private function logger($output)
 	{
-		file_put_contents('php://stderr', $output, TRUE);
+		if ($this->debug)
+		{
+			file_put_contents('php://stderr', $output, TRUE);
+		}
 	}
 	
     public function __construct()
@@ -56,7 +63,10 @@ Class Eventbriteapi
 	
 	
         $this->EE =& get_instance();
-		
+
+		/* Get the 'limit' paramter from the expressionengne tags */ 
+		$this->limit = $this->EE->TMPL->fetch_param('limit');
+		$this->logger("\n\n** Limit is: ".$this->limit);
 		
 		/* Fecth data from eventbrite if we dont have any data cached already or 
  		*  if there has been at least 30 seconds since we last fetched the data
@@ -88,7 +98,7 @@ Class Eventbriteapi
 		else
 		{
 			/* Otherwise we can just retrieve the event data from the session */
-			$this->logger("\n\n** Retrieveing Cookie data\n");
+			$this->logger("\n\n** Retrieveing session data\n");
 			$this->events = unserialize($_SESSION['eventbrite_data']);
 		}
 		
@@ -129,8 +139,8 @@ Class Eventbriteapi
 	}
 
 	/*
-	*	Check to see if there is an upcoming event in the data returned from Eventbrite.
-	*	If so return it's details to the expressionengine template tag. Otherwise return 
+	*	Check to see if there are  upcoming events in the data returned from Eventbrite.
+	*	If so return their details to the expressionengine template tag. Otherwise return 
 	*	isNextEvent to false so we can check this in the template.
 	*/
 	public function upcomingEvents()
@@ -142,45 +152,53 @@ Class Eventbriteapi
 		{
 			foreach( $this->events->events as $evnt )
 			{
-				/* Get the first event in the list */
-				$nextEvent = $evnt->event;
+				
+				// Ensure we only return the number of events specified by the limit parameter
+				if ( ($this->limit == "") || ( count($nextEventDetails) < $this->limit ) )
+				{
+					$this->logger("\n\n** Doing it, count =".count($nextEventDetails)." limit =".$this->limit);
+					// Get the event object from the sub-list 
+					$nextEvent = $evnt->event;
 			
-				/* Pull out and format the details */
-				$title = $nextEvent->title;
+					// Pull out and format the details
+					$title = $nextEvent->title;
 				
-				if (isset($nextEvent->logo)) 
-					$logoURL = $nextEvent->logo;
-				else $logoURL="";
+					if (isset($nextEvent->logo)) 
+						$logoURL = $nextEvent->logo;
+					else $logoURL="";
 				
-				$url = $nextEvent->url;
-				$date = strtotime($nextEvent->start_date);
-				$day = date('d', $date );
-				$month = strtoupper(date('M', $date));
-				$niceDate = date('jS F Y',$date);
-				$description = strip_tags($nextEvent->description);
-				$excerpt = $this->_truncate_words($description, 15, "...");
+					$url = $nextEvent->url;
+					$date = strtotime($nextEvent->start_date);
+					$day = date('d', $date );
+					$month = strtoupper(date('M', $date));
+					$niceDate = date('jS F Y',$date);
+					$description = strip_tags($nextEvent->description);
+					$excerpt = $this->_truncate_words($description, 15, "...");
 				
 		
-				/* push all the event details onto a return array which we can use in the EE tags */
-				array_push($nextEventDetails, array(	'title' => $title,
-														'url' => $url,
-														'day' => $day,
-														'month' => $month,
-														'date' => $niceDate,
-														'logoURL' => $logoURL,
-														'description' => $description,
-														'excerpt' => $excerpt
-													)
-							);
+					// push all the event details onto a return array which we can use in the EE tags 
+					array_push($nextEventDetails, array(	'title' => $title,
+															'url' => $url,
+															'day' => $day,
+															'month' => $month,
+															'date' => $niceDate,
+															'logoURL' => $logoURL,
+															'description' => $description,
+															'excerpt' => $excerpt
+														)
+								);
+				}
 			}						
 		}
 		else
 		{
-			/* Otherwise just return isNextEvent as being false */
+			// Otherwise just return isNextEvent as being false 
 			array_push($nextEventDetails, array('isNextEvent' => 'false'));
 		}
 		
-	    return $this->EE->TMPL->parse_variables($this->EE->TMPL->tagdata, $nextEventDetails);
+
+		return $this->EE->TMPL->parse_variables($this->EE->TMPL->tagdata, $nextEventDetails);
+
 	}
 	
 	function _truncate_words($content, $limit, $append) {
