@@ -71,16 +71,10 @@
 	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>	
 	
 	<script type="text/javascript">
-	$.validator.setDefaults({
-		submitHandler: function() { alert("submitted!"); }
-	});
-
-	$().ready(function() {
-		// validate the comment form when it is submitted
-		$(".validatingForm").validate();
-
-
-	});
+		$().ready(function() {
+			// validate the comment form when it is submitted
+			$(".validatingForm").validate();
+		});
 	</script>
 	
 	<script src="/javascripts/app.js"></script>

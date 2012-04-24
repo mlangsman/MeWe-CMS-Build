@@ -10,7 +10,7 @@ body { background: url('/img/background_dark.png') top center repeat-y #1E191C; 
    	Global
 	-------------------------------------------------- */
 
-a, h1, h2, h3, h4 { color: #F28C26; }
+a, h1, h2, h3, h4, h5 { color: #F28C26; }
 
 h1 {
 	font-family: Arial, Helvetica, Sans-Serif;
@@ -82,7 +82,7 @@ p.small {
 
 .frame
 {
-	background: url('/img/black_texture_background.png') top left repeat-x #000;
+	background: url('/img/black_texture_background.png') top left repeat #000;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
@@ -104,7 +104,7 @@ p.small {
 
 
 .black-header-bar {	
-	background: url('/img/black_texture_background.png') top left repeat-x; 
+	background: url('/img/black_texture_background.png') top left repeat; 
 	/* border: 1px solid #969696;*/
 	height: 28px;
 	line-height:1.6em;
@@ -484,7 +484,7 @@ p.small {
 	-------------------------------------------------- */
 
 #news-area h2 {	
-	background: url('/img/black_texture_background.png') top left repeat-x; 
+	background: url('/img/black_texture_background.png') top left repeat; 
 	/* border: 1px solid #969696;*/
 	height: 28px;
 	line-height:1.6em;
@@ -523,13 +523,13 @@ h3.event-heading {
 	margin-bottom: 10px;
 }
 
-.news-article header p  {
+.news-article header p, .comment-content header p  {
 		font-family: 12px 'Helvetica Neue', Helvetica, Sans-Serif;
 		font-size:1.2rem;
 		margin-bottom:10px;
 }
 
-.news-article header .date {
+.news-article header .date, .comment-content header .date {
 	font-style:italic;
 }
 
@@ -614,7 +614,7 @@ h3.event-heading {
 
 
 #footer h3 {
-	background: url('/img/black_texture_background.png') top left repeat-x;
+	background: url('/img/black_texture_background.png') top left repeat;
 	border: 1px solid #5A5A5A;
 	height: 28px;
 	line-height:1.6em;

@@ -35,6 +35,68 @@
 							
 							{/exp:channel:entries}
 							
+							<div id="comments">
+							
+									
+								
+								{exp:comment:entries}
+								
+									{if count==1}
+										<h5>Comments</h5>
+									{/if}
+								
+								
+													<div class="comment-content {switch odd|even}">
+														<header>
+															<p>
+																<span class="date">{comment_date format="%F %d, %Y"}</span> <span class="posted-by">Posted by</span> <strong>{name}</strong>
+															</p>
+														</header>		
+														{comment}
+													</div>
+
+								{/exp:comment:entries}
+								
+							</div> <!-- #comments -->
+							
+								<div id="comment-form">
+									<h5>Comment on this News Article</h5>
+
+									<fieldset id="comment-form-field">
+
+										{exp:comment:form channel="news" form_class="nice custom validatingForm"}
+										<div class="row">
+											<div class="six columns">
+												<p>
+													<label for="name">Name</label>
+													<input type="text" name="name" value="" class="input-text required" id="name" />
+												</p>
+												<p>
+													<label for="email">Email Address</label>
+													<input type="text" name="email" value="" class="input-text required email" id="email"  />
+												</p>
+											</div>
+											
+											<div class="six columns"> </div>
+										</div> <!-- .row -->
+											<p>
+												<label for="comment">Comment</label>
+												<textarea name="comment" class='textarea large' rows="8" cols="35" id="comment"></textarea>
+											</p>
+
+											<p>
+												<input type="submit" class="large black button radius black-gradient" name="submit" value="Submit" />
+											</p>
+											
+											
+										{/exp:comment:form}
+										
+									</fieldset>              
+
+
+
+							</div> <!-- END #comment-form -->
+							
 						</div> <!-- columns -->
 								
 							
