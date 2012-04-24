@@ -36,7 +36,7 @@ Class Eventbriteapi
 	private $user_key = '132930389027459422873';
 	
 	/* Turn debugging on/off */
-	private $debug = true;
+	private $debug = false;
 	
 	
 	/*
