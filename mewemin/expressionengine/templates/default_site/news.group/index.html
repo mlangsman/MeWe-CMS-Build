@@ -1,4 +1,4 @@
-{embed="includes/header" page="{segment_1}"}
+{embed="includes/header" page="{segment_1}" page_title="News stories - {company_name}"}
 
 				<div class="container"> 
 				
@@ -10,7 +10,7 @@
 							
 								<div class="news-article">
 									<header>
-										<h2>{title}</h2> 
+										<h2><a href="{title_permalink='news/view'}">{title}</a></h2> 
 										<p><span class="date">{entry_date format='%j %F %Y'}</span> by <strong>{author}</strong> <span class="comments">3 comments</span></p>
 									</header>
 									{if news_video_url !=""}

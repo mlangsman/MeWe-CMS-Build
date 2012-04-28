@@ -1,7 +1,7 @@
 
 {if logged_in}
 
-	{embed="includes/header"}
+	{embed="includes/header" page_title="{exp:user:stats}{screen_name}{/exp:user:stats}"}
 
 
 	<div class="container public-profile"> 
@@ -131,11 +131,11 @@
 	</div> <!-- container -->
 
 	{embed="includes/footer"}
-
+	
+	
 {if:else}
 
 	{redirect='member/login'}
 
 {/if}
-
 
