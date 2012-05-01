@@ -52,14 +52,26 @@
 		
 					<h4>Profile photo</h4>
 					{if photo_filename != ""}
-						<img src="{photo_url}{photo_filename}" width="{photo_width}" height="{photo_height}" />
+						<img id="photo" src="{photo_url}{photo_filename}" width="{photo_width}" height="{photo_height}" />
 					{if:else}
-						<img src="/img/default_user_photo_small.png">
+						<img id="photo"src="/img/default_user_photo_small.png">
 					{/if}
 
-						<label for="photo_filename">Upload a New Photo</label>
-						<input type="file" name="photo_filename" />
+		            <p>
+						<span id='photo-uploader'>
+		              		<input type="button" name="upload" id="upload" value="Upload a new photo" />
+		            	</span>
+					</p>
 
+					<script src="/javascripts/fileuploader.js" type="text/javascript"></script>
+				
+					<!-- This div will be replaced by Jquery with the animated progress bar -->
+					<div id="photo-progressbar"></div>
+				
+				
+					<!-- file upload script -->
+					{embed="includes/upload_script" type="photo"}
+				
 				</div>
 
 				<div class="profile-section">
@@ -90,13 +102,29 @@
 	
 					<p>
 	
+					
+					<!-- 
+						Because ExpressionEngine only has fields for Member Photo and Avatar, 
+						We are using Avatar to store the company logo.
+					-->
 		
 					<label for="avatar_filename">Company Logo</label>
 	
-					<img src="{avatar_url}{avatar_filename}" width="{avatar_width}" height="{avatar_height}" /></p>
-
-					<label for="avatar_filename">Upload a new logo</label>
-					<input type="file" name="avatar_filename" /></p>
+					<img id="avatar" src="{avatar_url}{avatar_filename}" width="{avatar_width}" height="{avatar_height}" /></p>
+					
+					<p>
+						<span id='avatar-uploader'>
+		              		<input type="button" name="avatar-upload" id="avatar-upload" value="Upload a new logo" />
+		            	</span>
+					</p>
+				
+					<!-- This div will be replaced by Jquery with the animated progress bar -->
+					<div id="avatar-progressbar"></div>
+				
+				
+					<!-- file upload script -->
+					{embed="includes/upload_script" type="avatar"}
+					
 	
 					<p>	
 						<label for="company_address">{lang:company_address:label}</label>

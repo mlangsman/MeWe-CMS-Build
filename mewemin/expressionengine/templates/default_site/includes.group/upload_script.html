@@ -1,0 +1,51 @@
+<script>    
+
+$(document).ready(function() {
+	
+	// init the progress bar
+	$("#{embed:type}-progressbar").progressbar({ value: 0 });
+	
+	// set some styles on it
+	$("#{embed:type}-progressbar").css({ 'height':'10px' });
+	$("#{embed:type}-progressbar").css({ 'display':'none' });
+	$(".ui-progressbar-value").css({ 'background-image' : 'url(/img/uploader/progress-bar.gif)' }); 
+});
+
+
+function create{embed:type}Uploader(){            
+    var {embed:type}_uploader = new qq.FileUploaderBasic({
+        button: document.getElementById('{embed:type}-uploader'),
+        action: '/uploader/{embed:type}',
+        debug: true,
+
+		onSubmit: function(id, filename) {
+			$("#{embed:type}-progressbar").show('slide','slow');
+			$("#{embed:type}-progressbar").progressbar( "option", "value", 5 ); },
+			
+       	onProgress: function(id, filename, loaded, total) {
+            			console.log( 'Progress for file: %s, ID: %s, loaded: %s, total: %s', 
+									  id, filename, loaded, total);
+						var progress = Math.round((loaded / total) * 100)*0.95;
+						$("#{embed:type}-progressbar").progressbar("option", "value", progress+5 );	},
+						
+		onComplete: function(id, filename, responseJSON) {
+		                    console.log('File upload for file %s, id %s done with status %s', filename, id, responseJSON);
+		                    $("#{embed:type}-progressbar").hide('highlight','slow');
+							d = new Date();
+							
+							if ('{embed:type}' == "photo")
+								path="/images/member_photos";
+							else if ('{embed:type}' == "avatar")
+								path="/images/avatars"
+						
+							$("#{embed:type}").attr("src", path + "/" + responseJSON['full_filename'] + "?"+d.getTime()); }
+							
+							
+		
+     });    
+}
+
+    create{embed:type}Uploader();     
+
+
+</script>
