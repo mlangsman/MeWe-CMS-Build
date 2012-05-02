@@ -191,12 +191,20 @@ if ($result['success']) {
 	
 	/* create thumbnail */
 	
-	//instantiate the class with the default settings
-	$ce_image = new Ce_image(
-	        array(
-	                'width' => 100
-	        )
-	);
+	$settings = array();
+	
+	// Use different thumbnail settings for user photos or avatar (company logo)
+	
+	if ("{segment_2}" == "photo") {
+		$settings = array('max' => 250, 'crop' => TRUE, 'allow_scale_larger' => TRUE);
+	}
+	else if ("{segment_2}" == "avatar")	{
+		$settings = array('max' => 100, 'crop' => TRUE, 'allow_scale_larger' => TRUE);
+	} 
+	
+	
+	//instantiate the class with the defined settings
+	$ce_image = new Ce_image($settings);
 	
 	//create the thumbnail
 	$ce_image->make( $result['upload_directory'] . $result['full_filename']  );
@@ -204,7 +212,9 @@ if ($result['success']) {
 	//get the location of the thumbnail
  	$ce_image->create_tag();
 	$result['thumbnail'] = $ce_image->get_relative_path();
-
+	
+	// Remove the upload directory from the response
+	$result['upload_directory'] = "";
 
 	//close the image (free up memory)
 	$ce_image->close();

@@ -25,6 +25,13 @@ $config['cookie_prefix'] = '';
 
 // END EE config items
 
+/* COnfig for CE_IMG Plugin */
+
+$config['ce_image_src_regex'] = array(
+'^http://localhost/MeWe_CMS' => '/Applications/MAMP/htdocs/MeWe_CMS/',
+'^http://mewe_cms.local/' => '/Applications/MAMP/htdocs/MeWe_CMS/'
+);
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

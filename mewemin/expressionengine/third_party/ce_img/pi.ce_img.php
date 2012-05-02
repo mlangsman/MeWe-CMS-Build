@@ -61,7 +61,7 @@ class Ce_img
 	/* Your current domain.  Compared to URLs to determine if an image is remote or local.
 	For example: http://www.example.com/
 	Generally leave blank and it will figure itself out. This value can be overwritten in config.php. */
-	private $current_domain = 'http://localhost/MeWe_CMS/';
+	private $current_domain = 'http://mewe_cms.local/';
 
 	/* The default quality for images saved to jpeg format.
 	This script will first try to use the quality= parameter from the tag (highest priority),

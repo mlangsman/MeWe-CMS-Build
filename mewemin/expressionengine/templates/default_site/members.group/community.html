@@ -15,8 +15,9 @@
 					<a href="/members/{member_id}">
 						<div class="frame">
 							{if photo_filename != ""}
-								
-									<img src="{photo_url}{photo_filename}" />
+								{exp:ce_img:pair:tiger src="{photo_url}{photo_filename}" max="250" crop="yes" allow_scale_larger="yes"}
+									<img src="{tiger:made}" />
+								{/exp:ce_img:pair:tiger}	
 
 							{if:else}
 								<img src="/img/default_user_photo_small.png">

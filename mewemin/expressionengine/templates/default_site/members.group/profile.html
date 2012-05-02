@@ -24,8 +24,10 @@
 						<div class="frame">
 							<!-- if photo -->
 							{if photo_filename != ""}
-
-									<img src="{photo_url}{photo_filename}" />
+									
+									{exp:ce_img:pair:member-photo src="{photo_url}{photo_filename}" max="250" crop="yes" allow_scale_larger="yes"}
+										<img src="{member-photo:made}" id="photo"/>
+									{/exp:ce_img:pair:member-photo}
 
 							{if:else}
 								<img src="/img/default_user_photo_small.png"/>
@@ -85,7 +87,9 @@
 				<div class="inset rounded sidebar">
 					{if avatar_filename != "" }
 
-						<img src="{avatar_url}{avatar_filename}" class="member-logo"/>
+					{exp:ce_img:pair:avatar src="{avatar_url}{avatar_filename}" max="100" allow_scale_larger="yes" crop="yes"}
+						<img src="{avatar:made}" class="member-logo"/>
+					{/exp:ce_img:pair:avatar}
 	
 
 					{if:else}
