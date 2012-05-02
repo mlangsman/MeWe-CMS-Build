@@ -20,7 +20,7 @@
 					{exp:channel:entries channel="membership" limit="3"}
 						{membership_tiers}
 							<div class="third columns">
-								<div class="service rounded shadow">
+								<div class="service rounded inset">
 										<h2>{membership_tier_name}</h2>
 										<div class="bubble rounded">
 											<div>
@@ -65,8 +65,10 @@
 				
 					</div><!-- #services-->
 					
+					<hr class="divider"/>
+					
 					<div class="row">
-						<div class="seven columns faq-section">
+						<div class="eight columns faq-section">
 							<h2>Frequently asked questions</h2>
 						
 						{exp:channel:entries channel="membership"}	
@@ -80,7 +82,7 @@
 							
 						</div><!-- columns -->
 							
-						<div class="five columns">
+						<div class="four columns">
 							<div class="service rounded top-ups">
 								<h2>Top-ups and Extras</h2>
 								{exp:channel:entries channel="topups_and_extras" orderby="topups_and_extras_order" show_expired="yes" show_future_entries="yes" sort="asc" backspace="6" }

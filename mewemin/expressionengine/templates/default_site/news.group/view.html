@@ -11,7 +11,7 @@
 								<div class="news-article">
 									<header>
 										<h2>{title}</h2> 
-										<p><span class="date">{entry_date format='%j %F %Y'}</span> by <strong>{author}</strong> <span class="comments">3 comments</span></p>
+										<p><span class="date">{entry_date format='%j %F %Y'}</span> by {author} <span class="comments"><a href="#comments">{comment_total} comments</a></span></p>
 									</header>
 									
 									{if news_video_url !=""}
@@ -25,10 +25,16 @@
 										</div>
 									{/if}
 									
-									<div class="social-icons">
-					
-										{exp:socialeesta:like href="{title_permalink}" action="like" color="light" layout="standard"}
-									</div> <!-- /social-icons -->
+									
+									<!-- AddThis Button BEGIN -->
+									<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+									<a class="addthis_button_preferred_1"></a>
+									<a class="addthis_button_preferred_2"></a>
+									<a class="addthis_button_linkedin"></a>
+									</div>
+									<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4fa160b51a7f8321"></script>
+									<!-- AddThis Button END -->
+
 
 									<p>{news_article}</p>
 								</div> <!-- .news-article -->

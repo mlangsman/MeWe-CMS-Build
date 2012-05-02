@@ -46,6 +46,10 @@ header {
 	border-bottom:dotted 1px #C4C4C4;
 }
 
+.news-article .frame {
+	width: 70%;
+}
+
 .news-article:last-child {
 	border-bottom:none;
 }
@@ -71,6 +75,7 @@ input[type="submit"].button.large {
 .input-text, label {
 	width: 100% !important;
 }
+
 
 
 

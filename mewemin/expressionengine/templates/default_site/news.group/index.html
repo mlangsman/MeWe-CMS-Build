@@ -11,7 +11,7 @@
 								<div class="news-article">
 									<header>
 										<h2><a href="{title_permalink='news/view'}">{title}</a></h2> 
-										<p><span class="date">{entry_date format='%j %F %Y'}</span> by <strong>{author}</strong> <span class="comments">3 comments</span></p>
+										<p><span class="date">{entry_date format='%j %F %Y'}</span> by <strong>{author}</strong> <span class="comments"><a href="{title_permalink='news/view'}#comments">{comment_total} comments</a></span></p>
 									</header>
 									{if news_video_url !=""}
 										{exp:antenna url='{news_video_url}' vimeo_portrait='false' vimeo_title='false'}
@@ -20,7 +20,7 @@
 									{if:elseif news_image != ""}
 										<div class="frame">
 											<!-- ><img src="http://lorempixel.com/450/250"/> -->
-											<img src="{news_image}" alt="{news_image_description}"/>
+											<img class="main-image" src="{news_image}" alt="{news_image_description}"/>
 										</div>
 									{/if}
 
