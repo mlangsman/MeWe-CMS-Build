@@ -47,16 +47,21 @@
 					</p>
 
 				</div>
+				
+
 			
 				<div class="profile-section">	
 		
 					<h4>Profile photo</h4>
 					{if photo_filename != ""}
-						<img id="photo" src="{photo_url}{photo_filename}" width="{photo_width}" height="{photo_height}" />
+
+							<img src="{photo_url}{photo_filename}" id="photo" />
+
 					{if:else}
 						<img id="photo"src="/img/default_user_photo_small.png">
 					{/if}
-
+					
+			
 		            <p>
 						<span id='photo-uploader'>
 		              		<input type="button" name="upload" id="upload" value="Upload a new photo" />
@@ -109,8 +114,10 @@
 					-->
 		
 					<label for="avatar_filename">Company Logo</label>
-	
-					<img id="avatar" src="{avatar_url}{avatar_filename}" width="{avatar_width}" height="{avatar_height}" /></p>
+					
+					{exp:ce_img:pair:avatar src="{avatar_url}{avatar_filename}" max="100" allow_scale_larger="yes" crop="yes"}
+						<img src="{avatar:made}" id="avatar"/>
+					{/exp:ce_img:pair:avatar}
 					
 					<p>
 						<span id='avatar-uploader'>

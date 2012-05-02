@@ -15,7 +15,9 @@
 					<a href="/members/{member_id}">
 						<div class="frame">
 							{if photo_filename != ""}
-								<img src="{photo_url}{photo_filename}">
+								
+									<img src="{photo_url}{photo_filename}" />
+
 							{if:else}
 								<img src="/img/default_user_photo_small.png">
 							{/if}

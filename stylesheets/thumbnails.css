@@ -1,0 +1,27 @@
+
+/* -------------------------------------------------- 
+   Styles for the Jquery thumbnail plugin
+
+   This is for the display of user profile images  
+   -------------------------------------------------- */
+
+.large-thumb {
+	width: 250px;
+	height: 250px;
+}
+
+.medium-thumb {
+	width: 120px;
+	height: 120px;
+}
+
+.small-thumb {
+	width: 100px;
+	height:100px;
+}
+
+/* Overwrite the margin in the jquery thumb css */
+.nailthumb-container {
+	margin:0 !important;
+	width:100%;
+}

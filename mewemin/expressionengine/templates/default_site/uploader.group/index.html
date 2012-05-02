@@ -1,5 +1,11 @@
 <?php
 
+// Include the CE image class to create thumbnails 
+if ( ! class_exists( 'CE_image' ) )
+{
+	require '/Applications/MAMP/htdocs/MeWe_CMS/mewemin/expressionengine/third_party/ce_img/libraries/Ce_image.php';
+}
+
 /**
  * Handle file uploads via XMLHttpRequest
  */
@@ -144,7 +150,7 @@ class qqFileUploader {
         }
         
         if ($this->file->save($uploadDirectory . $filename . '.' . $ext)){
-            return array('success'=>true, 'full_filename' => $filename . '.' . $ext);
+            return array('success'=>true, 'full_filename' => $filename . '.' . $ext, 'upload_directory' => $uploadDirectory );
         } else {
             return array('error'=> 'Could not save uploaded file.' .
                 'The upload was cancelled, or server error encountered');
@@ -182,6 +188,28 @@ switch ("{segment_2}") {
 // to point to the new file.
 if ($result['success']) {
 	file_put_contents('php://stderr', "\n\nUpdating database...\n\n", TRUE);
+	
+	/* create thumbnail */
+	
+	//instantiate the class with the default settings
+	$ce_image = new Ce_image(
+	        array(
+	                'width' => 100
+	        )
+	);
+	
+	//create the thumbnail
+	$ce_image->make( $result['upload_directory'] . $result['full_filename']  );
+	
+	//get the location of the thumbnail
+ 	$ce_image->create_tag();
+	$result['thumbnail'] = $ce_image->get_relative_path();
+
+
+	//close the image (free up memory)
+	$ce_image->close();
+	
+	/* Update the ee database */
 	
 	$data = array('{segment_2}_filename' => $result['full_filename']);
 

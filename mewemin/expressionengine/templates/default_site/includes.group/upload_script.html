@@ -38,7 +38,9 @@ function create{embed:type}Uploader(){
 							else if ('{embed:type}' == "avatar")
 								path="/images/avatars"
 						
-							$("#{embed:type}").attr("src", path + "/" + responseJSON['full_filename'] + "?"+d.getTime()); }
+							// $("#{embed:type}").attr("src", path + "/" + responseJSON['full_filename'] + "?"+d.getTime());
+							 $("#{embed:type}").attr("src", responseJSON['thumbnail'] + "?"+d.getTime());  
+							}
 							
 							
 		

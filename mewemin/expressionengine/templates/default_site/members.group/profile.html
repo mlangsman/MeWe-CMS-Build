@@ -24,7 +24,9 @@
 						<div class="frame">
 							<!-- if photo -->
 							{if photo_filename != ""}
-									<img src="{photo_url}{photo_filename}"/>
+
+									<img src="{photo_url}{photo_filename}" />
+
 							{if:else}
 								<img src="/img/default_user_photo_small.png"/>
 							{/if}
@@ -82,7 +84,10 @@
 			<div class="four columns">	
 				<div class="inset rounded sidebar">
 					{if avatar_filename != "" }
-						<img src="{avatar_url}{avatar_filename}" class="member-logo" />
+
+						<img src="{avatar_url}{avatar_filename}" class="member-logo"/>
+	
+
 					{if:else}
 						<img src="http://placehold.it/100x100" class="member-logo" />
 					{/if}

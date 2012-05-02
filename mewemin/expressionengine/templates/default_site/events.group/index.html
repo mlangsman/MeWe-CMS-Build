@@ -6,12 +6,19 @@
 					<div class="row">
 								
 							
-
+						{exp:channel:entries channel="events"}
+						
 						<div class="eight columns push-four">
 							<h1>We'd love to see you at one of our events!</h1>
 							<p>MEWE360º hosts a programme of networking and leadership development events designed to inspire, inform and connect our membership. As a member you have access to all events (free or discounted depending on your type of membership). We want to provide a programme that genuinely meets your needs and so are always open to member’s requests and will adapt our programme where necessary.</p>
-							<p> We run 6 different types of events - <strong>Networking Events</strong>, <strong>Networking Plus - The Lab</strong>, <strong>How I did it</strong>, <strong>Pick my brains</strong>, <strong>Workshop/Masterclass</strong> and <strong>Panel Discussions</strong>. </p>
-							
+							<p>We run 
+									{if events_file !=""}
+										<a href="{events_file}">6 different types of events</a>
+									{if:else}
+										6 different types of events
+									{/if}
+									- <strong>Networking Events</strong>, <strong>Networking Plus - The Lab</strong>, <strong>How I did it</strong>, <strong>Pick my brains</strong>, <strong>Workshop/Masterclass</strong> and <strong>Panel Discussions</strong>.
+								
 							<div class="row cta">
 								
 								<div class="eight columns">
@@ -23,67 +30,8 @@
 								</div>
 							</div>
 							
-						<div class="past-events">
-							<h2 class="black-header-bar">Past Events</h2>
-							<ul>
-								{exp:channel:entries channel="past_events" orderby="past_event_date"}
-								
-									<li class="event-summary accordionButton">
-									<div class="date-box">
-										<p class="month">{past_event_date format="%M"}</p>
-										<p class="day">{past_event_date format="%d"}</p>
-									</div> <!-- date-box -->
-							
-									<h3 class="event-title">{title}</h3>
-									<p class="event-description">{past_event_description}</p>
-									<div class="clear"></div>
-								</li>
-
-									<li class="event-content inset accordionContent">
-									<div class="row">
-										<div class="seven columns">
-											
-											<ul class="block-grid eight-up gallery">
-											
-											{past_event_photo_gallery}
-												<li>
-													<a href="{image}">{exp:ed_imageresizer image="{image}" forceWidth="yes" forceHeight="yes" maxWidth="200" maxHeight="200" cropratio="100:100" alt="pap"}</a>
-												</li>
-											{/past_event_photo_gallery}
-											
-											</ul>									
-										
-										</div><!-- columns -->
-									
-										<div class="five columns">
-											<div class="video">
-												{if past_event_video !=""}
-													{exp:antenna url='{past_event_video}' vimeo_portrait='false' controls='0' vimeo_title='false' max-width="220" max_height="123"}
-														<div class="flex-video">{embed_code}</div>
-													{/exp:antenna}
-												{if:else}
-													<img src="http://placehold.it/220x123">
-												{/if}
-												
-											</div>
-										</div> <!-- columns -->
-									</div> <!-- row -->
-									
-									<div class="row">
-										<div class="twelve columns">
-												<h4>Review</h4>
-												<p>{past_event_review}</p>
-										</div><!-- columns -->
-									</div> <!-- row -->
-								
-								</li>
-
-								{/exp:channel:entries}
-	
-							</ul>
-								
-						</div><!-- past events -->	
-								
+							{/exp:channel:entries}
+		
 							
 						</div> <!-- columns -->
 					
@@ -110,25 +58,97 @@
 							{/exp:eventbriteapi:upcomingEvents}
 						{/if}
 							
-							<div class="future-events">
-								<h2 class="black-header-bar">Future events</h2>
-								<ul>
-									{exp:eventbriteapi:upcomingEvents}
-										<li class="future-event container">	
-											<h3><a href="{url}">{title}</a></h3>
-											<p class="date">{date}</p>
-											<!-- <p>bumhole</p> -->
-										</li> <!-- container -->
-									{/exp:eventbriteapi:upcomingEvents}
-								</ul>
-						
-							</div> <!-- future-events -->
 									
 						</div> <!-- columns -->		
 			
 					</div> <!-- .row -->
 					
-					
+					<div class="row">
+						
+						<div class="eight columns push-four">
+							
+							<div class="past-events">
+								<h2 class="black-header-bar">Past Events</h2>
+								<ul>
+									{exp:channel:entries channel="past_events" orderby="past_event_date"}
+
+										<li class="event-summary accordionButton">
+										<div class="date-box">
+											<p class="month">{past_event_date format="%M"}</p>
+											<p class="day">{past_event_date format="%d"}</p>
+										</div> <!-- date-box -->
+
+										<h3 class="event-title">{title}</h3>
+										<p class="event-description">{past_event_description}</p>
+										<div class="clear"></div>
+									</li>
+
+										<li class="event-content inset accordionContent">
+										<div class="row">
+											<div class="seven columns">
+
+												<ul class="block-grid eight-up gallery">
+
+												{past_event_photo_gallery}
+													<li>
+														<a href="{image}">{exp:ed_imageresizer image="{image}" forceWidth="yes" forceHeight="yes" maxWidth="200" maxHeight="200" cropratio="100:100" alt="pap"}</a>
+													</li>
+												{/past_event_photo_gallery}
+
+												</ul>									
+
+											</div><!-- columns -->
+
+											<div class="five columns">
+												<div class="video">
+													{if past_event_video !=""}
+														{exp:antenna url='{past_event_video}' vimeo_portrait='false' controls='0' vimeo_title='false' max-width="220" max_height="123"}
+															<div class="flex-video">{embed_code}</div>
+														{/exp:antenna}
+													{if:else}
+														<img src="http://placehold.it/220x123">
+													{/if}
+
+												</div>
+											</div> <!-- columns -->
+										</div> <!-- row -->
+
+										<div class="row">
+											<div class="twelve columns">
+													<h4>Review</h4>
+													<p>{past_event_review}</p>
+											</div><!-- columns -->
+										</div> <!-- row -->
+
+									</li>
+
+									{/exp:channel:entries}
+
+								</ul>
+
+							</div><!-- past events -->	
+							
+						</div>
+						
+						<div class="four columns pull-eight">
+							
+								<div class="future-events">
+									<h2 class="black-header-bar">Future events</h2>
+									<ul>
+										{exp:eventbriteapi:upcomingEvents}
+											<li class="future-event container">	
+												<h3><a href="{url}">{title}</a></h3>
+												<p class="date">{date}</p>
+												<!-- <p>bumhole</p> -->
+											</li> <!-- container -->
+										{/exp:eventbriteapi:upcomingEvents}
+									</ul>
+
+								</div> <!-- future-events -->
+							
+						</div>
+						
+					</div> <!-- row -->
 
 				</div> <!-- container -->
 
