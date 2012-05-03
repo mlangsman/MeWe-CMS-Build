@@ -34,7 +34,9 @@
 					
 					<div class="row">
 						<div class="twelve columns">
+						
 							{exp:channel:entries channel="about"}
+							
 								<h2>Why MeWe?</h2>
 								<p class="small">{about_why_mewe}</p>
 							
@@ -46,15 +48,20 @@
 								<p class="small">{about_why_join}</p>
 				
 							{/exp:channel:entries}
+							
 						</div> <!-- columns -->
 					</div> <!-- row -->
 					
 					<div class="row people-section">
 						<div class="twelve columns">
 							<dl class="tabs">
-							  <dd><a href="#simple1" class="active">The Team</a></dd>
-							  <dd><a href="#simple2">The Board</a></dd>
-							  <dd><a href="#simple3">Advisors</a></dd>
+								<dd><a href="#simple1" class="active">The Team</a></dd>
+							 	<dd><a href="#simple2">The Board</a></dd>
+								
+								{exp:channel:entries channel="about"}
+							  		<dd {if about_show_advisors == ""} style="display: none;" {/if}><a href="#simple3">Advisors</a></dd>
+								{/exp:channel:entries}
+								
 							</dl>
 
 							<ul class="tabs-content">
