@@ -5,6 +5,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * Antenna Plugin
  * Copyright Matt Weinberg, www.VectorMediaGroup.com
+ * Patched by Marc Langsman to hide youtube controls and info if youtube_rel=0 is passed in the tag
  */
 
 $plugin_info = array(
@@ -155,10 +156,11 @@ class Antenna
     	}
 
     	// Inject YouTube rel value if required
+		// Patched to also hide you tube controls and video info if youtube_rel=0 is passed in the tag
     	if (!is_null($youtube_rel))
 		{
 			preg_match('/.*?src="(.*?)".*?/', $video_info->html, $matches);
-			if (!empty($matches[1])) $video_info->html = str_replace($matches[1], $matches[1] . '&rel=' . $youtube_rel, $video_info->html);
+			if (!empty($matches[1])) $video_info->html = str_replace($matches[1], $matches[1] . '&rel=' . $youtube_rel . '&controls=0&showinfo=0', $video_info->html);
 		}
     
 		// Handle a single tag
