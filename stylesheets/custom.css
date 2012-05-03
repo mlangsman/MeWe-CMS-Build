@@ -145,8 +145,14 @@ p.small {
 	margin-bottom:20px;
 }
 
+/* Fix for IE */
+.lt-ie9 .quarter.columns {
+	margin-left:1%;
+}
+
 .quarter.columns:first-child { margin-left: 0; }
 .quarter.columns:last-child { margin-left: 0.8%; }
+
 
 
 /*	--------------------------------------------------
