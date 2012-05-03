@@ -85,25 +85,47 @@
 
 										<li class="event-content inset accordionContent">
 										<div class="row">
+										
+										<!-- If there isnt a video we want the picture gallery to fill the full space -->	
+										{if past_event_video != ""}
+
 											<div class="seven columns">
-
+										
+										{if:else}
+												
+											<div class="twelve columns">
+												
+										{/if}
+											
 												<ul class="block-grid eight-up gallery">
-
+													
 												{past_event_photo_gallery}
 													<li>
 														<a href="{image}">{exp:ed_imageresizer image="{image}" forceWidth="yes" forceHeight="yes" maxWidth="200" maxHeight="200" cropratio="100:100" alt="pap"}</a>
 													</li>
 												{/past_event_photo_gallery}
+												
+												<!-- Create placeholder images to fill in any remaining blanks in the gallery grid -->
+												{exp:for_loop start="{past_event_photo_gallery:total_rows}" end="31" increment="1"}
+												
+												<li>
+													<img src="/img/default_user_photo_small.png" /> 
+												</li>
+												
+												{/exp:for_loop}
+												
 
 												</ul>									
 
 											</div><!-- columns -->
-
+										
+										{if past_event_video != ""}
+										
 											<div class="five columns">
 												<div class="video">
 													{if past_event_video !=""}
-														{exp:antenna url='{past_event_video}' vimeo_portrait='false' controls='0' vimeo_title='false' max-width="220" max_height="123"}
-															<div class="flex-video">{embed_code}</div>
+														{exp:antenna url='{past_event_video}' vimeo_portrait='false' youtube_rel='0' vimeo_title='false' max-width="220" max_height="123"}
+															<div class="flex-video widescreen">{embed_code}</div>
 														{/exp:antenna}
 													{if:else}
 														<img src="http://placehold.it/220x123">
@@ -111,6 +133,8 @@
 
 												</div>
 											</div> <!-- columns -->
+										{/if}
+											
 										</div> <!-- row -->
 
 										<div class="row">
