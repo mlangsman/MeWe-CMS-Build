@@ -25,6 +25,12 @@ $config['cookie_prefix'] = '';
 
 // END EE config items
 
+/* COnfig for CE_IMG Plugin */
+
+$config['ce_image_src_regex'] = array(
+'^http://mewe-staging.projoosr.com/' => '/var/www/vhosts/projoosr.com/subdomains/mewe-staging/httpdocs/'
+);
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
