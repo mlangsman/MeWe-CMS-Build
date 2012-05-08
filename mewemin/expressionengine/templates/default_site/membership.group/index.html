@@ -5,12 +5,18 @@
 				
 					<div class="row centered">
 						<div class="twelve columns">
-							{exp:channel:entries channel="membership"}
-							<h1>{membership_headline}</h1>
-							<div class="banner inset rounded shadow">
-								<h2>{membership_banner}</h2>
+							{exp:channel:entries channel="membership"}\
+							
+							 	<h1>{membership_headline}</h1>
+							
+								{if special_offer_visible != ""}			
+									<div class="banner inset rounded shadow">
+										<h2>{membership_banner}</h2>
+									</div> <!-- .banner --> 
+								{/if}
+								
 							{/exp:channel:entries}
-							</div> <!-- .banner --> 
+							
 						</div>
 					</div> <!-- row -->
 					
@@ -85,10 +91,11 @@
 						<div class="four columns">
 							<div class="service rounded top-ups">
 								<h2>Top-ups and Extras</h2>
-								{exp:channel:entries channel="topups_and_extras" orderby="topups_and_extras_order" show_expired="yes" show_future_entries="yes" sort="asc" backspace="6" }
-									<h3>{title}</h3>
-									{topups_and_extras_copy}
-									<hr />{/exp:channel:entries}
+								{exp:channel:entries channel="membership" backspace="6"}
+									{topups_and_extras}
+										<h3>{title}</h3>
+										{copy}
+										<hr />{/topups_and_extras}{/exp:channel:entries}
 								
 							</div>
 						</div><!-- columns -->

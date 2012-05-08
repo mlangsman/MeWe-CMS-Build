@@ -14,8 +14,14 @@
 						
 						<div class="six columns">
 							<div class="frame">
-								<img src="http://lorempixel.com/450/250"/>
-							</div>
+									{if workspace_video !=""}
+										{exp:antenna url='{workspace_video}' vimeo_portrait='false' youtube_rel='0' vimeo_title='false'}
+											<div class="flex-video vimeo widescreen">{embed_code}</div>
+										{/exp:antenna}
+									{if:else}									
+								     	<img src="{workspace_main_image}"/>
+									{/if}
+							</div> <!-- frame -->
 						</div> <!-- columns -->
 								
 							
@@ -29,38 +35,19 @@
 					
 					
 					<div class="row services rooms-section">
+					
+					{workspace_four_columns}
 				
 							<div class="quarter columns">
 								<div class="service rounded">
-										<h2>{workspace_room_1_heading}</h2>
-									<img src="{workspace_room_1_image}" alt="{workspace_room_1_heading}" />
-									<p>{workspace_room_1_copy}</p>
+										<h2>{title}</h2>
+									<img src="{image}" alt="{title}" />
+									<p>{copy}</p>
 								</div> <!-- panel -->
 							</div>				
 				
-							<div class="quarter columns">				
-								<div class="service rounded">
-									<h2>{workspace_room_2_heading}</h2>
-									<img src="{workspace_room_2_image}" alt="{workspace_room_2_heading}" />
-									<p>{workspace_room_2_copy}</p>
-								</div> <!-- panel -->
-							</div>				
-					
-							<div class="quarter columns">					
-								<div class="service rounded">
-									<h2>{workspace_room_3_heading}</h2>
-									<img src="{workspace_room_3_image}" alt="{workspace_room_3_heading}" />
-									<p>{workspace_room_3_copy}</p>
-								</div> <!-- panel -->
-							</div>				
-					
-							<div class="quarter columns">				
-								<div class="service rounded">
-									<h2>{workspace_room_4_heading}</h2>
-									<img src="{workspace_room_4_image}" alt="{workspace_room_4_heading}" />
-									<p>{workspace_room_4_copy}</p>
-								</div> <!-- panel -->
-							</div>
+					{/workspace_four_columns}
+
 					</div><!-- #services-->
 					
 					<div class="row">

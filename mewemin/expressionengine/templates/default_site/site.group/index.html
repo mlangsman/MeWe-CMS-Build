@@ -14,10 +14,17 @@
 						</div> <!-- #straplineArea -->
 
 						<div class="six columns pull-six" id='carousel'>
-								
+
 								<div class="frame">
-									     <img src="/img/carousel/5.jpg"/>
-								</div> <!-- carousel-container -->
+									
+										{if home_video !=""}
+											{exp:antenna url='{home_video}' vimeo_portrait='false' youtube_rel='0' vimeo_title='false'}
+												<div class="flex-video vimeo widescreen">{embed_code}</div>
+											{/exp:antenna}
+										{if:else}									
+									     	<img src="{home_main_image}" />
+										{/if}
+								</div> <!-- frame-->
 					
 				
 						</div> <!-- #carousel -->
@@ -27,43 +34,19 @@
 			
 					<div class="row services">
 						
+						{home_four_columns}
 						
 							<div class="quarter columns">
 								<div class="service rounded">
-										<h2>Incubator</h2>
-									<img src="{home_incubator_image}" alt="Incubator" />
-									<p>{home_incubator_copy}</p>
-									<a href="/incubator" class="medium black button radius black-gradient"><span>Fund your business</span></a>
+										<h2>{title}</h2>
+									<img src="{image}" alt="{title}" />
+									<p>{copy}</p>
+									<a href="{url}" class="medium black button radius black-gradient"><span>{button_copy}</span></a>
 								</div> <!-- panel -->
 							</div>				
-				
-							<div class="quarter columns">				
-								<div class="service rounded">
-									<h2>Workspace</h2>
-									<img src="{home_workspace_image}" alt="Workspace" />
-									<p>{home_workspace_copy}</p>
-									<a href="/workspace" class="medium black button radius black-gradient"><span>See the workspace</span></a>
-								</div> <!-- panel -->
-							</div>				
-					
-							<div class="quarter columns">					
-								<div class="service rounded">
-									<h2>Events</h2>
-									<img src="{home_events_image}" alt="Events" />
-									<p>{home_events_copy}</p>
-									<a href="/events" class="medium black button radius black-gradient"><span>Come to an event</span></a>
-								</div> <!-- panel -->
-							</div>				
-					
-							<div class="quarter columns">				
-								<div class="service rounded">
-									<h2>Membership</h2>
-									<img src="{home_membership_image}" alt="Membership" />
-									<p>{home_membership_copy}</p>
-									<a href="/membership" class="medium black button radius black-gradient"><span>Find out more</span></a>
-								</div> <!-- panel -->
-							</div>
 							
+						{/home_four_columns}
+						
 						{/exp:channel:entries}
 
 					</div><!-- #services-->

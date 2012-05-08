@@ -8,8 +8,16 @@
 						
 						<div class="six columns">
 							<div class="frame">
-								<img src="http://lorempixel.com/450/250"/>
-							</div>
+							{exp:channel:entries channel="incubator"}
+									{if incubator_video !=""}
+										{exp:antenna url='{incubator_video}' vimeo_portrait='false' youtube_rel='0' vimeo_title='false'}
+											<div class="flex-video vimeo widescreen">{embed_code}</div>
+										{/exp:antenna}
+									{if:else}									
+								     	<img src="{incubator_main_image}"/>
+									{/if}
+								{/exp:channel:entries}
+							</div> <!-- frame -->
 						</div> <!-- columns -->
 								
 							

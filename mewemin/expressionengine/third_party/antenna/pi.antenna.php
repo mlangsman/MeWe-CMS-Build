@@ -160,7 +160,7 @@ class Antenna
     	if (!is_null($youtube_rel))
 		{
 			preg_match('/.*?src="(.*?)".*?/', $video_info->html, $matches);
-			if (!empty($matches[1])) $video_info->html = str_replace($matches[1], $matches[1] . '&rel=' . $youtube_rel . '&controls=0&showinfo=0', $video_info->html);
+			if (!empty($matches[1])) $video_info->html = str_replace($matches[1], $matches[1] . '&rel=' . $youtube_rel . '&controls=0&showinfo=0&byline=0&title=0', $video_info->html);
 		}
     
 		// Handle a single tag

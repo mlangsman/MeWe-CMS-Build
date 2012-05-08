@@ -163,6 +163,14 @@ p.small {
 	label.error { background-color: #f68b01; color: #fff; text-shadow: 0 -1px rgba(0,0,0,0.3); }
 
 
+/*	--------------------------------------------------
+	 Video
+	-------------------------------------------------- */
+
+/* Overroide the margisn on the video container from the foundation frameowrk */
+.flex-video {
+	margin: 0 !important;
+}
 
 /*	--------------------------------------------------
    	Buttons
@@ -617,6 +625,11 @@ h3.event-heading {
 	background: url('/img/sponsors_background.png') top center repeat-y #ebebed;
 	margin:auto;
 	margin-top: 50px;	
+}
+
+.sponsors a {
+	float: right;
+	margin: 0 20px;
 }
 
 

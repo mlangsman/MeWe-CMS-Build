@@ -13,10 +13,21 @@
 					<div class="row top-section">
 						
 						<div class="six columns">
+						
 							<div class="frame">
-								<img src="http://lorempixel.com/450/250"/>
-							</div>
+							{exp:channel:entries channel="about"}
+									{if about_video !=""}
+										{exp:antenna url='{about_video}' vimeo_portrait='false' youtube_rel='0' vimeo_title='false'}
+											<div class="flex-video vimeo widescreen">{embed_code}</div>
+										{/exp:antenna}
+									{if:else}									
+								     	<img src="{about_main_image}"/>
+									{/if}
+								{/exp:channel:entries}
+							</div> <!-- frame -->
+						
 						</div> <!-- columns -->
+						
 								
 							
 
@@ -69,7 +80,7 @@
 								<li class="active" id="simple1Tab">
 									<div class="container">
 										<p>Our team looks after MeWe’s members and keeps our events and workspace running smoothly.</p>
-										<ul class="block-grid four-up">
+										<ul class="block-grid four-up mobile">
 											
 											{embed="includes/people_gallery" field="team"}
 										
@@ -80,7 +91,7 @@
 							<li id="simple2Tab">
 									<div class="container">
 										<p>The board creates MeWe’s strategy to ensure that members are offered the most innovative and cutting-edge services for their businesses.</p>
-										<ul class="block-grid four-up">
+										<ul class="block-grid four-up mobile">
 										
 											{embed="includes/people_gallery" field="board"}
 											
@@ -93,7 +104,7 @@
 											
 											<p>From heads of leading media organisations to captains of creative industry, our advisors offer members invaluable one-to-one business coaching.</p>
 											
-											<ul class="block-grid four-up">
+											<ul class="block-grid four-up mobile">
 												
 												{embed="includes/people_gallery" field="advisors"}
 										

@@ -2,10 +2,10 @@
 
 	{{embed:field}}
 		<li> 
+			{if video != ""}
 			
-			{if video == ""}
 				<a  
-					 href="http://pseudo01.hddn.com/vod/demo.flowplayervod/flowplayer-700.flv"
+					 href="{video}"
 					 id="{embed:field}{row_id}" style="display:block;"
 					class="flowplayer flex-video widescreen"> 
 				</a> 
@@ -28,7 +28,8 @@
 
 						    // second clip is a video. when autoPlay is set to false the splash screen will be shown
 						    {
-						        url: 'http://pseudo01.hddn.com/vod/demo.flowplayervod/flowplayer-700.flv', 
+						        // url: 'http://pseudo01.hddn.com/vod/demo.flowplayervod/flowplayer-700.flv', 
+								url: '{video}', 
 						        autoPlay: false, 
 
 						        // video will be buffered when splash screen is visible
@@ -44,7 +45,7 @@
 			
 					{if photo != ""}
 						<img src="{photo}">
-					{else:if}
+					{if:else}
 						<img src="http://lorempixel.com/200/120">
 					{/if}
 			{/if}

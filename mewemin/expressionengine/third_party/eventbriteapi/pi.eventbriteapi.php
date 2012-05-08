@@ -61,9 +61,17 @@ Class Eventbriteapi
 			session_start();
 		}
 	
-	
-        $this->EE =& get_instance();
-
+		try 
+		{
+        	$this->EE =& get_instance();
+		}
+		catch ( Exception $e )
+		{
+			$this->EE = "";
+			$this->logger("Error calling Eventbrite API: " + $e);	
+		}
+		
+		
 		/* Get the 'limit' paramter from the expressionengne tags */ 
 		$this->limit = $this->EE->TMPL->fetch_param('limit');
 		$this->logger("\n\n** Limit is: ".$this->limit);

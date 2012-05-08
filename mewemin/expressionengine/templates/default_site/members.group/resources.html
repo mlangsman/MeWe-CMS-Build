@@ -1,0 +1,44 @@
+{if logged_in}
+
+	{embed="includes/header"}
+
+	<div class="container"> 
+		
+		<div class="row">
+	
+			{exp:channel:entries channel="resources"}
+			
+				<table>
+					
+					{resources_list}
+						<tr>
+							<td>
+								<h3>{name}</h3>
+								<p>{description}</p>
+								<p><a href="{url}">{url}</a></p>
+							</td>
+							<td>
+								{if file != ""}
+									<a href="{file}"><img src="/img/file-icon.png" style="max-width:50%"/></a>
+								{/if}
+							</td>
+						</tr>
+					{/resources_list}
+				
+				</table>
+			
+			{/exp:channel:entries}
+
+		</div> <!-- .row -->
+
+	</div> <!-- container -->
+
+	{embed="includes/footer"}
+	
+	
+{if:else}
+
+	{redirect='member/login'}
+
+{/if}
+
