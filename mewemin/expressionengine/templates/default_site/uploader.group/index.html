@@ -1,9 +1,16 @@
 <?php
 
+error_log("Started upload script", 0);
+
+$rootdir_staging = '/var/www/vhosts/projoosr.com/subdomains/mewe-staging/httpdocs';
+$rootdir_dev = '/Applications/MAMP/htdocs/MeWe_CMS';
+
+$rootdir = $rootdir_dev;
+
 // Include the CE image class to create thumbnails 
 if ( ! class_exists( 'CE_image' ) )
 {
-	require '/Applications/MAMP/htdocs/MeWe_CMS/mewemin/expressionengine/third_party/ce_img/libraries/Ce_image.php';
+	require $rootdir.'/mewemin/expressionengine/third_party/ce_img/libraries/Ce_image.php';
 }
 
 /**
@@ -169,13 +176,14 @@ $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
 // Check to see if the second url segment is photo or avatar and handle the upload accordingly. 
 // Return an error if the segment is neither of these values.
 switch ("{segment_2}") {
-	
-	case "photo":
-		$result = $uploader->handleUpload('/Applications/MAMP/htdocs/MeWe_CMS/images/member_photos/');
+
+	case "photo":		
+		error_log('its a photo...'.$rootdir, 0);
+		$result = $uploader->handleUpload($rootdir.'/images/member_photos/');
 	break;
 	
 	case "avatar":
-		$result = $uploader->handleUpload('/Applications/MAMP/htdocs/MeWe_CMS/images/avatars/');
+		$result = $uploader->handleUpload($rootdir.'/images/avatars/');
 	break;
 	
 	default:
@@ -184,9 +192,11 @@ switch ("{segment_2}") {
 }
 
 
+
 // If the file uploaded okay, then we update the user's record in the expressionengine database 
 // to point to the new file.
 if ($result['success']) {
+	error_log('Success, updating DB...result is:'.$result.var_dump($result), 0);
 	file_put_contents('php://stderr', "\n\nUpdating database...\n\n", TRUE);
 	
 	/* create thumbnail */
@@ -230,6 +240,9 @@ if ($result['success']) {
 }
 else {
 	file_put_contents('php://stderr', "\n\nFailed\n", TRUE);
+	error_log('Failed uploading/converting image: '.var_dump($result), 0);
+	echo htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+	
 }
 
 // to pass data through iframe you will need to encode all html tags
