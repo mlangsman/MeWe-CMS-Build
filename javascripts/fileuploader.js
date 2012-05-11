@@ -5,7 +5,8 @@
  * © 2010 Andrew Valums ( andrew(at)valums.com ) 
  * 
  * Licensed under GNU GPL 2 or later and GNU LGPL 2 or later, see license.txt.
- */    
+ */
+
 
 //
 // Helper functions
@@ -16,7 +17,7 @@ var qq = qq || {};
 /**
  * Adds all missing properties from second obj to first obj
  */ 
-qq.extend = function(first, second){
+qq.extend = function (first, second) {
     for (var prop in second){
         first[prop] = second[prop];
     }
@@ -26,7 +27,7 @@ qq.extend = function(first, second){
  * Searches for a given element in the array, returns -1 if it is not present.
  * @param {Number} [from] The index at which to begin the search
  */
-qq.indexOf = function(arr, elt, from){
+qq.indexOf = function (arr, elt, from) {
     if (arr.indexOf) return arr.indexOf(elt, from);
     
     from = from || 0;
@@ -359,7 +360,7 @@ qq.FileUploaderBasic.prototype = {
     _onProgress: function(id, fileName, loaded, total){        
     },
     _onComplete: function(id, fileName, result){
-        this._filesInProgress--;    
+        this._filesInProgress--;   
         if (result.error){
             this._options.showMessage(result.error);
         }   
@@ -616,7 +617,7 @@ qq.extend(qq.FileUploader.prototype, {
         qq.remove(this._find(item, 'spinner'));
         
         if (result.success){
-            qq.addClass(item, this._classes.success);    
+            qq.addClass(item, this._classes.success);  
         } else {
             qq.addClass(item, this._classes.fail);
         }         
@@ -1061,7 +1062,8 @@ qq.extend(qq.UploadHandlerForm.prototype, {
         this.log("innerHTML = " + doc.body.innerHTML);
                         
         try {
-            response = eval("(" + doc.body.innerHTML + ")");
+            //response = eval("(" + doc.body.innerHTML + ")");
+			response = JSON.parse("(" + doc.body.innerHTML + ")");
         } catch(err){
             response = {};
         }        
@@ -1219,8 +1221,9 @@ qq.extend(qq.UploadHandlerXhr.prototype, {
             var response;
                     
             try {
-                response = eval("(" + xhr.responseText + ")");
+				response = JSON.parse(xhr.responseText);
             } catch(err){
+			alert(err);
                 response = {};
             }
             

@@ -179,6 +179,7 @@ switch ("{segment_2}") {
 
 	case "photo":		
 		error_log('its a photo...'.$rootdir, 0);
+		file_put_contents('php://stderr','its a photo...'.$rootdir, TRUE);
 		$result = $uploader->handleUpload($rootdir.'/images/member_photos/');
 	break;
 	
@@ -196,7 +197,7 @@ switch ("{segment_2}") {
 // If the file uploaded okay, then we update the user's record in the expressionengine database 
 // to point to the new file.
 if ($result['success']) {
-	error_log('Success, updating DB...result is:'.$result.var_dump($result), 0);
+	error_log('Success, updating DB...', 0);
 	file_put_contents('php://stderr', "\n\nUpdating database...\n\n", TRUE);
 	
 	/* create thumbnail */
@@ -221,10 +222,10 @@ if ($result['success']) {
 	
 	//get the location of the thumbnail
  	$ce_image->create_tag();
-	$result['thumbnail'] = $ce_image->get_relative_path();
+	$result["thumbnail"] = $ce_image->get_relative_path();
 	
 	// Remove the upload directory from the response
-	$result['upload_directory'] = "";
+	//$result['upload_directory'] = "";
 
 	//close the image (free up memory)
 	$ce_image->close();
@@ -239,13 +240,22 @@ if ($result['success']) {
 	
 }
 else {
+	unset($result["full_filename"]);
+	unset($result["upload_directory"]);
 	file_put_contents('php://stderr', "\n\nFailed\n", TRUE);
-	error_log('Failed uploading/converting image: '.var_dump($result), 0);
+	error_log('Failed uploading/converting image ', 0);
 	echo htmlspecialchars(json_encode($result), ENT_NOQUOTES);
 	
 }
 
 // to pass data through iframe you will need to encode all html tags
+
+// Remove unnecessary items from the reponse
+unset($result["full_filename"]);
+unset($result["upload_directory"]);
+
+error_log('result is'.print_r($result,true), 0);
+file_put_contents('php://stderr', 'result is '. print_r($result,true), TRUE);
 echo htmlspecialchars(json_encode($result), ENT_NOQUOTES);
 
 ?>

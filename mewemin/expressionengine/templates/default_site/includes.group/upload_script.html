@@ -32,13 +32,13 @@ function create{embed:type}Uploader(){
 		                    console.log('File upload for file %s, id %s done with status %s', filename, id, responseJSON);
 		                    $("#{embed:type}-progressbar").hide('highlight','slow');
 							d = new Date();
-							
 							if ('{embed:type}' == "photo")
 								path="/images/member_photos";
 							else if ('{embed:type}' == "avatar")
 								path="/images/avatars"
+
+							// Refresh the image using the newly created thumbnail
 							
-							// $("#{embed:type}").attr("src", path + "/" + responseJSON['full_filename'] + "?"+d.getTime());
 							 $("#{embed:type}").attr("src", responseJSON['thumbnail'] + "?"+d.getTime());  
 							}
 							
