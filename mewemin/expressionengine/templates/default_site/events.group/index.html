@@ -70,7 +70,7 @@
 							<div class="past-events">
 								<h2 class="black-header-bar">Past Events</h2>
 								<ul>
-									{exp:channel:entries channel="past_events" orderby="past_event_date"}
+									{exp:channel:entries channel="past_events" orderby="past_event_date" sort="desc"}
 
 										<li class="event-summary accordionButton">
 										<div class="date-box">
@@ -87,7 +87,7 @@
 										<div class="row">
 										
 										<!-- If there isnt a video we want the picture gallery to fill the full space -->	
-										{if past_event_video != ""}
+										{if past_event_video != "" OR past_event_photo_gallery != ""}
 
 											<div class="seven columns">
 										
@@ -96,6 +96,8 @@
 											<div class="twelve columns">
 												
 										{/if}
+											
+										{if past_event_photo_gallery != ""}
 											
 												<ul class="block-grid eight-up gallery">
 													
@@ -118,6 +120,8 @@
 												</ul>									
 
 											</div><!-- columns -->
+											
+										{/if}
 										
 										{if past_event_video != ""}
 										
