@@ -212,6 +212,12 @@ hr.divider {
 	background: #f0f0f1;
 }
 
+.file-icon img
+{
+	vertical-align: bottom;
+	display: inline-block;
+}
+
 /* -------------------------------------------------- 
    Top-ups section
    -------------------------------------------------- */
