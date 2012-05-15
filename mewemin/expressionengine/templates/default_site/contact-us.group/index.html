@@ -1,43 +1,53 @@
-{embed="includes/header" page="{segment_1} page_title="Contact Us - {company_name}"}
+{embed="includes/header" page="{segment_1}" page_title="Contact Us - {company_name}"}
 
 <div class="container">
 	<div class="row">
 		<div class="twelve columns">
+			<h2>We'd love to hear from you !</h2>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="six columns">
+		
 			
+			 	
 					
-		{exp:freeform:form 
-			form:class="nice custom"
-			collection="Contact Us"
-			required="name|email"
-			return="/"
-			notify="info@projoosr.com"
-			template="default_template"
-			send_user_email="yes"
-			}
+				{exp:freeform:form 
+					form:class="nice custom validatingForm"
+					collection="Contact Us"
+					required="name|email"
+					return="/thankyou"
+					notify="info@projoosr.com"
+					template="default_template"
+					send_user_email="yes"
+					user_email_template="mewe_template"  
+					}
 							
-			        <h2>Get in touch</h2>
-					<p>We'd love to hear from you !</p>
+			       
+							
 							
 							<label for="name">What's your name?</label>
-			                <input type="text" class="input-text" id="name" name="name" size="40" maxlength="35" />
+			                <input type="text" class="input-text required" id="name" name="name" size="40" maxlength="35" />
 
 			                <label for="email">Your Email</label>
-			                <input type="text" class="input-text" id="from" name="email" size="40" maxlength="35" />
-
+			                <input type="text" class="input-text required email" id="email" name="email" size="40" maxlength="35" />
 
 			                <label for="subject">Subject</label>
-			                <input type="text" class="input-text" id="subject" name="subject" size="40" />
+			                <input type="text" class="input-text required" id="subject" name="subject" size="40" />
 
 			                <label for="message">Message</label>
-			                <textarea id="message" name="message" rows="18" class="large" >
+			                <textarea id="message" name="message" rows="18" class="large required" >
 
 			                </textarea>
 
-			                <input name="submit" type='submit' value='Submit' class='large black button radius black-gradient' />
+			                <input type="submit" class="large black button radius black-gradient" name="submit" value="Submit" />
 
-			{/exp:freeform:form}
+				{/exp:freeform:form}
 	
 		</div> <!-- columns -->
+		<div class="six columns"></div>
+		
 	</div> <!-- row -->
 	
 </div>
