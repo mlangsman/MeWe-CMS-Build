@@ -3,54 +3,26 @@
 	{{embed:field}}
 		<li> 
 			{if video != ""}
-			
-				<a  
-					 href="{video}"
-					 id="{embed:field}{row_id}" style="display:block;"
-					class="flowplayer flex-video widescreen"> 
-				</a> 
-
-				<!-- this will install flowplayer inside previous A- tag. -->
-				<script>
-					
-					flowplayer("{embed:field}{row_id}", "/javascripts/flowplayer/flowplayer-3.2.10.swf",
-					{
-						plugins: {controls: null},
-						playlist: [
-						
-
-						    // this first PNG clip works as a splash image
-						    {
-						        url: '{photo}', 
-						        scaling: 'scale'
-						    },
-
-
-						    // second clip is a video. when autoPlay is set to false the splash screen will be shown
-						    {
-						        // url: 'http://pseudo01.hddn.com/vod/demo.flowplayervod/flowplayer-700.flv', 
-								url: '{video}', 
-						        autoPlay: false, 
-
-						        // video will be buffered when splash screen is visible
-						        autoBuffering: true 
-						    }
-						]
-
-					});
-					
-				</script>
+				
+				{exp:antenna url='{video}' vimeo_portrait='false' youtube_rel='0' vimeo_title='false'}
+					<div class="flex-video vimeo widescreen">{embed_code}</div>
+				{/exp:antenna}	
 
 			{if:else}
 			
 					{if photo != ""}
-						<img src="{photo}">
+					
+						{exp:ce_img:pair:mugshot src="{photo}" height="184" width="320" crop="yes" allow_scale_larger="yes"}
+							<img src="{mugshot:made}" />
+						{/exp:ce_img:pair:mugshot}
+					
 					{if:else}
 						<img src="http://lorempixel.com/200/120">
 					{/if}
 			{/if}
 
-			<h3>{name}</h3>
+			<!-- If the heading is below a video embed it's given a separate class to ensure its aligned -->
+			<h3 {if video !="" }class="video_heading"{/if}>{name}</h3>
 			<p>{bio}</p>
 		
 		</li>

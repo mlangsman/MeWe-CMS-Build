@@ -52,6 +52,11 @@ a.button {
 	margin:15px 0px 20px 0px;
 }
 
+/* headings that fall under a video need some extra margin to align */
+.people-section h3.video_heading {
+	margin-top: 21px;
+}
+
 .people-section img {
 	width: 100%;
 }

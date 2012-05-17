@@ -9,7 +9,7 @@
 						<div class="six columns push-six" id="straplineArea">
 								<div class="cta-container">
 									<h1>{strapline}</h1>
-									<a class="huge button black radius black-gradient hide-on-phones" href="/sign-up"><span>Join today</span></a>
+									<a href="/sign-up" class="huge black button black radius black-gradient hide-on-phones" ><span>Join today</span></a>
 								</div>
 						</div> <!-- #straplineArea -->
 
@@ -18,7 +18,7 @@
 								<div class="frame">
 									
 										{if home_video !=""}
-											{exp:antenna url='{home_video}' vimeo_portrait='false' youtube_rel='0' vimeo_title='false'}
+											{exp:antenna url='{home_video}' vimeo_portrait='false' youtube_rel='0' vimeo_title='false' wmode='transparent'}
 												<div class="flex-video vimeo widescreen">{embed_code}</div>
 											{/exp:antenna}
 										{if:else}									

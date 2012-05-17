@@ -10,3 +10,5 @@
         # If 404s, "No Input File" or every URL returns the same thing
         # make it /index.php?/$1 above (add the question mark)
 </IfModule>
+
+AddType text/x-component .htc
