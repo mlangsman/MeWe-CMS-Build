@@ -2,10 +2,10 @@
 
 error_log("Started upload script", 0);
 
-$rootdir_staging = '/var/www/vhosts/projoosr.com/subdomains/mewe-staging/httpdocs';
-$rootdir_dev = '/Applications/MAMP/htdocs/MeWe_CMS';
+// $rootdir_staging = '/var/www/vhosts/projoosr.com/subdomains/mewe-staging/httpdocs';
+// $rootdir_dev = '/Applications/MAMP/htdocs/MeWe_CMS';
 
-$rootdir = $rootdir_dev;
+$rootdir = '{global:base_path}';
 
 // Include the CE image class to create thumbnails 
 if ( ! class_exists( 'CE_image' ) )

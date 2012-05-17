@@ -25,13 +25,6 @@ $config['cookie_prefix'] = '';
 
 // END EE config items
 
-/* COnfig for CE_IMG Plugin */
-
-$config['ce_image_src_regex'] = array(
-'^http://localhost/MeWe_CMS' => '/Applications/MAMP/htdocs/MeWe_CMS/',
-'^http://mewe_cms.local/' => '/Applications/MAMP/htdocs/MeWe_CMS/'
-);
-
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -330,6 +323,12 @@ $config['rewrite_short_tags'] = TRUE;
 |
 */
 $config['proxy_ips'] = "";
+
+
+/**
+ * Require the Focus Lab, LLC Master Config file
+ */
+require $_SERVER['DOCUMENT_ROOT'] . '/config/config.master.php';
 
 
 /* End of file config.php */
