@@ -102,8 +102,10 @@
 												<ul class="block-grid eight-up gallery">
 													
 												{past_event_photo_gallery}
-													<li>
-														<a href="{image}">{exp:ed_imageresizer image="{image}" forceWidth="yes" forceHeight="yes" maxWidth="200" maxHeight="200" cropratio="100:100" alt="pap"}</a>
+													<li>														
+															{exp:ce_img:pair:photo src="{image}" max="200" crop="yes" allow_scale_larger="yes"}
+																<a href="{image}"><img src="{photo:made}" alt="Photo of {title}" /></a>
+															{/exp:ce_img:pair:photo}	
 													</li>
 												{/past_event_photo_gallery}
 												
