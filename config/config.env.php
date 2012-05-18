@@ -17,6 +17,8 @@ if ( ! defined('ENV'))
 	switch ($_SERVER['HTTP_HOST']) {
 		case 'mewe360.com' :
 		case 'www.mewe360.com' :
+		case 'www.mewefoundation.com' :
+		case 'mewefoundation.com' :
 			define('ENV', 'prod');
 			define('ENV_FULL', 'Production');
 			define('ENV_DEBUG', FALSE);

@@ -19,6 +19,13 @@ $env_db['database'] = 'mewe360_expressionengine';
 // Can be used in templates like "{global:google_analytics}"
 $env_global['global:google_analytics'] = 'UA-XXXXXXX-XX';
 
+$config['ce_image_src_regex'] = array(
+'^http://www.mewe360.com/' => $base_path . '/',
+'^http://mewe360.com/' => $base_path . '/',
+'^http://mewefoundation.com/' => $base_path . '/',
+'^http://www.mewefoundation.com/' => $base_path . '/'
+);
+
 $env_global['global:contact_email'] = 'marc@projoosr.com';
 
 /* End of file config.prod.php */
