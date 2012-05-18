@@ -52,15 +52,15 @@
 							<div class="row">
 									<div class="twelve columns">
 											{if facebook != ""}
-												<a href="{facebook}"><img src="/img/profile-icon-facebook.png" alt="facebook logo"/></a>
+												<a href="{exp:valid_url}{facebook}{/exp:valid_url}" target="_blank" ><img src="/img/facebook.png" alt="facebook logo"/></a>
 											{/if}
 							
 											{if twitter != ""}
-												<a href="{twitter}"><img src="/img/profile-icon-twitter.png" alt="twitter logo"/>
+												<a href="{exp:valid_url}{twitter}{/exp:valid_url}" target="_blank" ><img src="/img/twitter.png" alt="twitter logo"/></a>
 											{/if}
 							
 											{if linkedin != ""}
-												<a href="{linkedin}"><img src="/img/profile-icon-linkedin.png" alt="linked in logo"/>
+												<a href="{exp:valid_url}{linkedin}{/exp:valid_url}" target="_blank" ><img src="/img/linkedin.png" alt="linked in logo"/></a>
 											{/if}
 									</div> <!-- columns -->
 							</div> <!-- row -->
@@ -108,7 +108,7 @@
 						{/if}
 					
 						{if url != ""}
-							{url}<br />
+							<a href="{exp:valid_url}{url}{/exp:valid_url}" target="_blank" >{url}</a><br />
 						{/if}
 					</p>
 				

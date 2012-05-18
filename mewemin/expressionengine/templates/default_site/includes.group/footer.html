@@ -6,7 +6,7 @@
 						
 						<div class="twelve columns">
 							{sponsors}
-								<a href="{url}">
+								<a href="{exp:valid_url}{url}{/exp:valid_url}" target="_blank" >
 									<img src="{logo}" alt="{name}" />
 								</a>
 							{/sponsors}
@@ -37,15 +37,15 @@
 							<div class="container">
 								<ul>
 									{if footer_twitter != ""}
-										<li><a href="{footer_twitter}"><img src="/img/twitter.png" />Twitter</a></li>
+										<li><a href="{exp:valid_url}{footer_twitter}{/exp:valid_url}" target="_blank" ><img src="/img/twitter.png" />Twitter</a></li>
 									{/if}
 									
 									{if footer_facebook != ""}
-										<li><a href="{footer_facebook}"><img src="/img/facebook.png" />Facebook</a></li>
+										<li><a href="{exp:valid_url}{footer_facebook}{/exp:valid_url}" target="_blank" ><img src="/img/facebook.png" />Facebook</a></li>
 									{/if}
 									
 									{if footer_linkedin != ""}
-										<li><a href="{footer_linkedin}"><img src="/img/linkedin.png" />LinkedIn</a></li>
+										<li><a href="{exp:valid_url}{footer_linkedin}{/exp:valid_url}" target="_blank" ><img src="/img/linkedin.png" />LinkedIn</a></li>
 									{/if}
 									
 								</ul>
