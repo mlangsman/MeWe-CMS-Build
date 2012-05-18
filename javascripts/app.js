@@ -105,7 +105,7 @@ jQuery(document).ready(function ($) {
 	$('input, textarea').placeholder();
 
 	/* TOOLTIPS ------------ */
-	$(this).tooltips();
+	// $(this).tooltips();
 
 
 
