@@ -22,7 +22,9 @@
 						<div class="three columns">
 							<h3>Find Us</h3>
 							<div class="container">
-								<img class="map" src="/img/map.png" />
+								{footer_map_image}
+									<a href="{exp:valid_url}{map_link}{/exp:valid_url}" _target="blank" ><img class="map" src="{image}" alt="Map showing MeWe location" /></a>
+								{/footer_map_image}
 							</div>
 						</div>
 						<div class="three columns">
@@ -58,7 +60,13 @@
 								<a href="{path='contact-us'}" class="medium radius black button black-gradient">Get in touch</a>
 							</div>
 						</div>
-					</div>	
+					</div>
+						
+					<div class="row"> <!-- Company registration info -->
+						<div class="twelve">
+							<p class="company-info">{company_info}</p>
+						</div>
+					</div> <!-- /row -->
 				
 				
 				</div> <!-- .footer -->
