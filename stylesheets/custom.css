@@ -491,7 +491,8 @@ p.small {
 	width:  80px;
 	height: 28px;
 	color: white;
-	font: 14px Candara, sans-serif;
+	font-family: Candara, sans-serif;
+	font-size: 	14px;
 	font-size: 	1.4rem;
 	border: solid 1px #FFC060;
 	background: url('/img/small_orange_button.png') top left no-repeat;
@@ -644,7 +645,7 @@ h3.event-heading {
 #footer {
 	background: #000;
 	background: url('/img/footer_background.png') top center repeat-y;
-	padding: 0px 20px 50px 20px;
+	padding: 0px 20px 10px 20px;
 }
 
 
@@ -694,6 +695,14 @@ h3.event-heading {
 	float:left;
 	margin-right:10px;
 	vertical-align:middle;
+}
+
+#footer p.company-info {
+	margin:20px 0 10px 0;
+	text-align: center;
+	font-size: 7px;
+	font-size: 0.7em;
+	color: #555;
 }
 
 
